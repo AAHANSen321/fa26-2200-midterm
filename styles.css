@@ -3,7 +3,7 @@
 
 :root {
   --color-primary: #ED5A66;    /* BTU red */
-  --color-secondary: #7a22d4;  /* blue-violet (replaces the light blue) */
+  --color-secondary: #23A0D1;  /* blue */
   --color-accent: #f6e365;     /* yellow */
   --color-neutral: #221c1d;    /* gray-black: text + outlines */
   --color-highlight: #ffffff;  /* white */
@@ -16,7 +16,7 @@
 
   --color-background: var(--color-pink);
   --color-text-dark: var(--color-neutral);
-  --color-text-light: #ffffff;
+  --color-text-light: #221c1d;
   --color-text-muted: color-mix(in srgb, var(--color-text-dark) 78%, transparent);
 
   --font-primary: 'Bungee', 'Arial Black', Impact, sans-serif;

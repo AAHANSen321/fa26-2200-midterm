@@ -1,0 +1,670 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Share+Tech&display=swap');
+
+:root {
+  /* Core palette (wa6.html) */
+  --color-primary: #ED5A66;    /* BTU red */
+  --color-secondary: #7a22d4;  /* blue-violet (replaces the light blue) */
+  --color-accent: #f6e365;     /* yellow */
+  --color-neutral: #221c1d;    /* gray-black: text + outlines */
+  --color-highlight: #ffffff;  /* white */
+
+  /* Retro extension */
+  --color-purple: var(--color-secondary);  /* headline color */
+  --color-pink: #fbd3e0;       /* page background */
+  --color-pink-hot: #ff8fab;   /* footer band */
+  --color-lilac: #ecb4ee;      /* header strip behind the title bar */
+  --color-cream: #fff3dc;      /* cards + title bar */
+
+  --color-background: var(--color-pink);
+  --color-text-dark: var(--color-neutral);
+  --color-text-light: #ffffff;
+  --color-text-muted: color-mix(in srgb, var(--color-text-dark) 78%, transparent);
+
+  /* Typography (wa6.html) */
+  --font-primary: 'Bungee', 'Arial Black', Impact, sans-serif;
+  --font-secondary: 'Share Tech', ui-monospace, 'Courier New', monospace;
+
+  /* Spacing system (wa6.html) */
+  --spacing-xs: 0.2rem;
+  --spacing-sm: 0.6rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.7rem;
+  --spacing-xl: 3rem;
+
+  /* Shape: square corners everywhere; only buttons are pills */
+  --radius-pill: 999px;
+  --outline: 2px solid var(--color-neutral);
+  --shadow: 6px 6px 0 var(--color-neutral);
+
+  /* Layout */
+  --gutter: clamp(1rem, 5vw, 4rem);  /* left/right breathing room */
+  --tab-width: 4rem;                 /* width of a sideways tab */
+  --edge-stripe: 0.5rem;             /* each stripe on the right screen edge */
+  --measure: 66ch;
+}
+
+/* ---------- 2. Reset + base ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-secondary);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--color-text-dark);
+  /* Pink with a faint zig-zag texture */
+  background-color: var(--color-background);
+  background-image:
+    linear-gradient(135deg, rgb(255 255 255 / 0.28) 25%, transparent 25%),
+    linear-gradient(225deg, rgb(255 255 255 / 0.28) 25%, transparent 25%);
+  background-size: 24px 12px;
+  /* leave room for the stripes on the right edge */
+  padding-right: calc(var(--edge-stripe) * 2);
+}
+
+/* Yellow + violet stripes running down the right edge of the screen */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0 0 0 auto;
+  width: calc(var(--edge-stripe) * 2);
+  background: linear-gradient(
+    to right,
+    var(--color-accent) 50%,
+    var(--color-secondary) 50%
+  );
+  border-left: var(--outline);
+  z-index: 5;
+}
+
+/* ---------- 3. Typography ---------- */
+h1,
+h2,
+h3 {
+  font-family: var(--font-primary);
+  font-weight: 400;          /* Bungee ships in one weight */
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+/* h1: chunky purple with a hard offset shadow */
+h1 {
+  font-size: clamp(2.2rem, 7vw, 4rem);
+  color: var(--color-purple);
+  text-shadow: 0.06em 0.06em 0 var(--color-accent);
+  margin-bottom: var(--spacing-md);
+}
+
+/* h2: violet, underlined with a red / violet / yellow stripe */
+h2 {
+  font-size: clamp(1.3rem, 3.5vw, 2rem);
+  color: var(--color-purple);
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  background:
+    linear-gradient(
+      to right,
+      var(--color-primary) 0 33.3%,
+      var(--color-purple) 33.3% 66.6%,
+      var(--color-accent) 66.6% 100%
+    )
+    left bottom / 7.5rem 0.35rem no-repeat;
+}
+
+/* h3: yellow sticker */
+h3 {
+  font-size: clamp(1.05rem, 2.5vw, 1.4rem);
+  display: inline-block;
+  background-color: var(--color-accent);
+  border: var(--outline);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+p,
+ul,
+ol,
+address {
+  margin-bottom: var(--spacing-md);
+  max-width: var(--measure);
+}
+
+address {
+  font-style: normal;
+}
+
+small,
+.small-text {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+main ul,
+main ol {
+  padding-left: var(--spacing-lg);
+}
+
+main li {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Bullets alternate violet / red */
+main ul > li::marker                { content: "✦  "; color: var(--color-purple); }
+main ul > li:nth-child(3n + 1)::marker { color: #c22a3a; }
+
+main li > ul,
+main li > ol {
+  margin-top: var(--spacing-xs);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ---------- 4. Links + buttons ---------- */
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--color-purple);
+  text-decoration-thickness: 0.18em;
+  text-underline-offset: 0.2em;
+  transition: background-color 0.3s ease, text-decoration-color 0.3s ease;
+}
+
+a:visited {
+  text-decoration-color: var(--color-primary);
+}
+
+a:hover {
+  background-color: var(--color-accent);
+  text-decoration-color: var(--color-neutral);
+}
+
+a:focus-visible,
+button:focus-visible,
+iframe:focus-visible {
+  outline: 3px solid var(--color-neutral);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 7px var(--color-accent);
+  background-color: var(--color-accent);
+  color: var(--color-text-dark);
+}
+
+/* Add class="button" to a link for the red "Know More" style pill */
+.button {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background-color: var(--color-primary);
+  color: var(--color-text-dark);
+  font-family: var(--font-primary);
+  text-decoration: none;
+  border: var(--outline);
+  border-radius: var(--radius-pill);
+  box-shadow: 3px 3px 0 var(--color-neutral);
+  transition: background-color 0.3s ease, transform 0.2s, box-shadow 0.2s;
+}
+
+.button:hover {
+  background-color: var(--color-accent);
+  transform: translate(-2px, -2px) scale(1.05);
+  box-shadow: 6px 6px 0 var(--color-neutral);
+}
+
+.button:active {
+  transform: translate(3px, 3px) scale(0.95);
+  box-shadow: 0 0 0 var(--color-neutral);
+  background-color: var(--color-secondary);
+  color: var(--color-text-light);
+}
+
+/* ---------- 5. Skip link ---------- */
+.skip-link {
+  position: absolute;
+  top: var(--spacing-sm);
+  left: var(--spacing-sm);
+  z-index: 10;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-accent);
+  border: var(--outline);
+  font-family: var(--font-primary);
+  text-decoration: none;
+  transform: translateY(-300%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* ---------- 6. Header: a retro window title bar ---------- */
+body > header {
+  background-color: var(--color-cream);
+  border-bottom: var(--outline);
+  border-top: var(--spacing-sm) solid var(--color-lilac);
+  outline: var(--outline);
+  padding: var(--spacing-sm) var(--gutter);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-sm) var(--spacing-lg);
+}
+
+/* Lab name / home link */
+body > header > a {
+  font-family: var(--font-primary);
+  font-size: 1.4rem;
+  line-height: 1.1;
+  color: var(--color-purple);
+  text-decoration: none;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  margin-left: calc(var(--spacing-sm) * -1);
+}
+
+/* Three little window buttons (decorative) */
+body > header::after {
+  content: "";
+  flex: none;
+  align-self: flex-start;
+  width: 0.9rem;
+  height: 0.9rem;
+  margin-right: 2.6rem;
+  margin-top: var(--spacing-sm);
+  background-color: var(--color-accent);
+  border: var(--outline);
+  box-shadow:
+    1.3rem 0 0 -2px var(--color-secondary), 1.3rem 0 0 0 var(--color-neutral),
+    2.6rem 0 0 -2px var(--color-primary),   2.6rem 0 0 0 var(--color-neutral);
+}
+
+nav {
+  flex: 1 1 28rem;
+}
+
+/* Mid-width windows: links get their own full-width row under the lab name */
+@media (max-width: 1100px) {
+  nav {
+    flex-basis: 100%;
+    order: 3;
+  }
+
+  body > header > a {
+    margin-right: auto;
+  }
+}
+
+/* Links wrap onto extra rows when they run out of room */
+nav ul {
+  list-style: none;
+  max-width: none;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs) var(--spacing-sm);
+}
+
+nav a {
+  display: block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s, box-shadow 0.2s;
+}
+
+nav a:hover {
+  background-color: var(--color-accent);
+  border-color: var(--color-neutral);
+  box-shadow: 3px 3px 0 var(--color-primary);
+  transform: translate(-2px, -2px);
+}
+
+nav a:active {
+  transform: translate(1px, 1px);
+  box-shadow: none;
+  background-color: var(--color-secondary);
+  color: var(--color-text-light);
+}
+
+/* Current page: red sticker (border + shadow, so it isn't color-only) */
+nav a[aria-current="page"] {
+  background-color: var(--color-primary);
+  border-color: var(--color-neutral);
+  box-shadow: 3px 3px 0 var(--color-neutral);
+}
+
+/* ---------- 7. Main content (interior pages) ---------- */
+main {
+  padding-block: var(--spacing-xl);
+}
+
+/* Everything except the full-bleed home page rows sits inside the gutter */
+main > :not(.hero):not(.panel) {
+  margin-inline: var(--gutter);
+}
+
+/* Plain sections become cream cards with a colored offset shadow */
+main > section:not(.hero):not(.panel) {
+  background-color: var(--color-cream);
+  border: var(--outline);
+  box-shadow: 6px 6px 0 var(--color-primary);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  max-width: 60rem;
+}
+
+main > section:not(.hero):not(.panel):nth-of-type(3n + 2) { box-shadow: 6px 6px 0 var(--color-purple); }
+main > section:not(.hero):not(.panel):nth-of-type(3n)     { box-shadow: 6px 6px 0 var(--color-accent); }
+
+main > section > :first-child {
+  margin-top: 0;
+}
+
+main > section > :last-child,
+.panel > div > :last-child,
+aside > :last-child {
+  margin-bottom: 0;
+}
+
+/* Callouts */
+aside {
+  background-color: var(--color-accent);
+  border: var(--outline);
+  box-shadow: var(--shadow);
+  padding: var(--spacing-md) var(--spacing-lg);
+  margin-block: var(--spacing-lg);
+  max-width: 60rem;
+}
+
+aside a,
+aside a:visited {
+  text-decoration-color: var(--color-neutral);
+}
+
+aside a:hover {
+  background-color: var(--color-highlight);
+}
+
+/* Embedded calendar */
+iframe {
+  display: block;
+  width: 100%;
+  min-height: 600px;
+  border: var(--outline);
+  box-shadow: var(--shadow);
+  background-color: var(--color-highlight);
+}
+
+/* ---------- 8. Home page: hero ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: var(--spacing-xl) var(--gutter);
+  margin-top: calc(var(--spacing-xl) * -1);   /* sit directly under the title bar */
+  margin-bottom: var(--spacing-xl);
+  border-bottom: var(--outline);
+  min-height: 22rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Rainbow ribbon shooting off the right-hand corner */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 45%;
+  --line: var(--color-neutral);
+  background: linear-gradient(
+    125deg,
+    transparent 0 46%,
+    var(--line) 46% calc(46% + 2px),
+    var(--color-primary) calc(46% + 2px) 64%,
+    var(--line) 64% calc(64% + 2px),
+    var(--color-purple) calc(64% + 2px) 82%,
+    var(--line) 82% calc(82% + 2px),
+    var(--color-accent) calc(82% + 2px) 100%
+  );
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+  max-width: min(var(--measure), 52%);
+}
+
+.hero h1 {
+  font-size: clamp(2.6rem, 8vw, 5.5rem);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* "Blow. Things. Up." — red sticker, tilted */
+.hero h1 + p {
+  align-self: flex-start;
+  font-family: var(--font-primary);
+  font-size: clamp(1.1rem, 3vw, 1.7rem);
+  line-height: 1.15;
+  background-color: var(--color-primary);
+  border: var(--outline);
+  box-shadow: 4px 4px 0 var(--color-neutral);
+  padding: var(--spacing-xs) var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  transform: rotate(-2deg);
+}
+
+.hero p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- 9. Home page: sideways tabs, flush left ----------
+   Each .panel is one row. Its h2 is a narrow vertical box pinned to the
+   left edge of the screen with the text turned sideways; the answer sits
+   to the right of it.                                                    */
+.panel {
+  display: grid;
+  grid-template-columns: var(--tab-width) minmax(0, 1fr);
+  border-top: var(--outline);
+  margin-right: var(--gutter);
+}
+
+.panel:last-of-type {
+  border-bottom: var(--outline);
+}
+
+.panel > h2 {
+  writing-mode: vertical-rl;       /* sideways text… */
+  transform: rotate(180deg);       /* …flipped so the letters' feet face the content */
+  margin: 0;
+  padding: var(--spacing-md) 0;
+  display: flex;
+  align-items: center;             /* center the letters across the tab */
+  white-space: nowrap;
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  color: var(--color-text-dark);
+  background: var(--color-primary);
+  border-right: var(--outline);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Tab colors repeat red → blue → yellow. Change --tab-blue to swap the blue. */
+.panel { --tab-blue: var(--color-secondary); }
+.panel:nth-of-type(3n) > h2     { background: var(--tab-blue); color: var(--color-text-light); }
+.panel:nth-of-type(3n + 1) > h2 { background: var(--color-accent); }
+
+/* Hover / keyboard focus inside a row flips its tab to dark */
+.panel:hover > h2,
+.panel:focus-within > h2 {
+  background: var(--color-neutral);
+  color: var(--color-accent);
+}
+
+.panel > div {
+  background-color: var(--color-cream);
+  border-right: var(--outline);
+  padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-lg) var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ---------- 10. Footer: hot pink striped band ---------- */
+body > footer {
+  background-color: var(--color-pink-hot);
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgb(255 255 255 / 0.18) 0 4px,
+    transparent 4px 12px
+  );
+  border-top: var(--outline);
+  padding: var(--spacing-lg) var(--gutter);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--spacing-md) var(--spacing-xl);
+}
+
+footer address,
+footer ul {
+  margin-bottom: 0;
+}
+
+footer strong {
+  font-family: var(--font-primary);
+  font-weight: 400;
+}
+
+footer ul {
+  list-style: none;
+}
+
+footer li {
+  margin-bottom: var(--spacing-xs);
+}
+
+footer a,
+footer a:visited {
+  text-decoration-color: var(--color-neutral);
+}
+
+footer small {
+  color: var(--color-text-dark);
+}
+
+/* Disclaimer spans the full footer width */
+footer > p {
+  grid-column: 1 / -1;
+  max-width: none;
+  margin-bottom: 0;
+  padding-top: var(--spacing-md);
+  border-top: var(--outline);
+}
+
+/* ---------- 11. Small screens ---------- */
+@media (max-width: 700px) {
+  :root {
+    --tab-width: 3rem;
+    --edge-stripe: 0.25rem;
+  }
+
+  body {
+    font-size: 1.05rem;
+  }
+
+  body > header::after {
+    display: none;
+  }
+
+  /* Phones: links line up in tidy columns */
+  nav ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+    gap: var(--spacing-xs);
+  }
+
+  nav a {
+    height: 100%;
+    line-height: 1.3;
+  }
+
+  /* Ribbon becomes a flat three-color bar along the bottom of the hero */
+  .hero {
+    min-height: 0;
+    padding-bottom: calc(var(--spacing-xl) + 1rem);
+  }
+
+  .hero::after {
+    inset: auto 0 0 0;
+    width: auto;
+    height: 1rem;
+    border-top: var(--outline);
+    background: linear-gradient(
+      to right,
+      var(--color-primary) 0 33.3%,
+      var(--color-purple) 33.3% 66.6%,
+      var(--color-accent) 66.6% 100%
+    );
+  }
+
+  .hero > * {
+    max-width: var(--measure);
+  }
+
+  .panel {
+    margin-right: 0;
+  }
+
+  .panel > h2 {
+    font-size: 1rem;
+  }
+
+  .panel > div {
+    border-right: 0;
+    padding: var(--spacing-md);
+  }
+
+  main > section:not(.hero):not(.panel),
+  aside {
+    padding: var(--spacing-md);
+  }
+}
+
+/* ---------- 12. Motion + contrast preferences ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+
+  .button:hover,
+  .button:active,
+  nav a:hover,
+  nav a:active {
+    transform: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .panel > h2,
+  h3,
+  aside {
+    border: 1px solid CanvasText;
+  }
+
+  h2 {
+    background: none;
+  }
+}

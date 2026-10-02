@@ -2,14 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Share+Tech&display=swap');
 
 :root {
-  /* Core palette (wa6.html) */
   --color-primary: #ED5A66;    /* BTU red */
   --color-secondary: #7a22d4;  /* blue-violet (replaces the light blue) */
   --color-accent: #f6e365;     /* yellow */
   --color-neutral: #221c1d;    /* gray-black: text + outlines */
   --color-highlight: #ffffff;  /* white */
 
-  /* Retro extension */
   --color-purple: var(--color-secondary);  /* headline color */
   --color-pink: #fbd3e0;       /* page background */
   --color-pink-hot: #ff8fab;   /* footer band */
@@ -21,30 +19,25 @@
   --color-text-light: #ffffff;
   --color-text-muted: color-mix(in srgb, var(--color-text-dark) 78%, transparent);
 
-  /* Typography (wa6.html) */
   --font-primary: 'Bungee', 'Arial Black', Impact, sans-serif;
   --font-secondary: 'Share Tech', ui-monospace, 'Courier New', monospace;
 
-  /* Spacing system (wa6.html) */
   --spacing-xs: 0.2rem;
   --spacing-sm: 0.6rem;
   --spacing-md: 1rem;
   --spacing-lg: 1.7rem;
   --spacing-xl: 3rem;
 
-  /* Shape: square corners everywhere; only buttons are pills */
   --radius-pill: 999px;
   --outline: 2px solid var(--color-neutral);
   --shadow: 6px 6px 0 var(--color-neutral);
 
-  /* Layout */
   --gutter: clamp(1rem, 5vw, 4rem);  /* left/right breathing room */
   --tab-width: 4rem;                 /* width of a sideways tab */
   --edge-stripe: 0.5rem;             /* each stripe on the right screen edge */
   --measure: 66ch;
 }
 
-/* ---------- 2. Reset + base ---------- */
 *,
 *::before,
 *::after {

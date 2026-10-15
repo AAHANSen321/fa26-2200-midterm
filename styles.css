@@ -483,11 +483,11 @@ iframe {
 
 body > footer {
   background-color: var(--color-pink-hot);
-  background-image: repeating-linear-gradient(
+  /*background-image: repeating-linear-gradient(
     135deg,
     rgb(255 255 255 / 0.18) 0 4px,
     transparent 4px 12px
-  );
+  );*/
   border-top: var(--outline);
   padding: var(--spacing-lg) var(--gutter);
   display: grid;

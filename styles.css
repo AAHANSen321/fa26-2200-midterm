@@ -12,7 +12,6 @@
   --color-purple: var(--color-secondary);  /* headline color */
   --color-pink: #fbd3e0;       /* page background */
   --color-pink-hot: #ff8fab;   /* footer band */
-  --color-lilac: #ecb4ee;      /* header strip behind the title bar */
   --color-cream: #fff3dc;      /* cards + title bar */
 
   --color-background: var(--color-pink);
@@ -35,7 +34,6 @@
 
   --gutter: clamp(1rem, 5vw, 4rem);  /* left/right breathing room */
   --tab-width: 4rem;                 
-  --edge-stripe: 0.5rem;             /* each stripe on the right screen edge */
   --measure: 66ch;
 }
 
@@ -62,22 +60,6 @@ body {
     linear-gradient(135deg, rgb(255 255 255 / 0.28) 25%, transparent 25%),
     linear-gradient(225deg, rgb(255 255 255 / 0.28) 25%, transparent 25%);
   background-size: 24px 12px;
-  /* leave room for the stripes on the right edge */
-  padding-right: calc(var(--edge-stripe) * 2);
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0 0 0 auto;
-  width: calc(var(--edge-stripe) * 2);
-  background: linear-gradient(
-    to right,
-    var(--color-accent) 50%,
-    var(--color-secondary) 50%
-  );
-  border-left: var(--outline);
-  z-index: 5;
 }
 
 h1,
@@ -231,7 +213,6 @@ iframe:focus-visible {
 body > header {
   background-color: var(--color-cream);
   border-bottom: var(--outline);
-  border-top: var(--spacing-sm) solid var(--color-lilac);
   outline: var(--outline);
   padding: var(--spacing-sm) var(--gutter);
   display: flex;
@@ -248,21 +229,6 @@ body > header > a {
   text-decoration: none;
   padding: var(--spacing-xs) var(--spacing-sm);
   margin-left: calc(var(--spacing-sm) * -1);
-}
-
-body > header::after {
-  content: "";
-  flex: none;
-  align-self: flex-start;
-  width: 0.9rem;
-  height: 0.9rem;
-  margin-right: 2.6rem;
-  margin-top: var(--spacing-sm);
-  background-color: var(--color-accent);
-  border: var(--outline);
-  box-shadow:
-    1.3rem 0 0 -2px var(--color-secondary), 1.3rem 0 0 0 var(--color-neutral),
-    2.6rem 0 0 -2px var(--color-primary),   2.6rem 0 0 0 var(--color-neutral);
 }
 
 nav {
@@ -533,15 +499,10 @@ footer > p {
 @media (max-width: 700px) {
   :root {
     --tab-width: 3rem;
-    --edge-stripe: 0.25rem;
   }
 
   body {
     font-size: 1.05rem;
-  }
-
-  body > header::after {
-    display: none;
   }
 
   nav ul {

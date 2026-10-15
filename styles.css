@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Share+Tech&display=swap');
 
 :root {
@@ -492,7 +491,7 @@ body > footer {
   border-top: var(--outline);
   padding: var(--spacing-lg) var(--gutter);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  grid-template-columns: minmax(0, 1fr) auto;  /* address left, links right */
   gap: var(--spacing-md) var(--spacing-xl);
 }
 
@@ -506,8 +505,13 @@ footer strong {
   font-weight: 400;
 }
 
+/* Links: pushed to the far right and dropped one line,
+   so they start level with the street address, not "BTU Lab" */
 footer ul {
   list-style: none;
+  justify-self: end;
+  text-align: right;
+  margin-top: 1.6em;   /* one line (matches body line-height) */
 }
 
 footer li {
@@ -594,6 +598,17 @@ footer > p {
   main > section:not(.hero):not(.panel),
   aside {
     padding: var(--spacing-md);
+  }
+
+ 
+  body > footer {
+    grid-template-columns: 1fr;
+  }
+
+  footer ul {
+    justify-self: start;
+    text-align: left;
+    margin-top: 0;
   }
 }
 

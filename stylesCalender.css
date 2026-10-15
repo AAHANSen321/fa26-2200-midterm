@@ -1,8 +1,4 @@
-/* ============================================================
-   styleCalendar.css — ATLAS BTU Lab, Calendar page
-   Same look as the homepage (title bar, nav, hero banner,
-   cream card, button, footer) plus calendar-specific sizing.
-   ============================================================ */
+
 
 @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Share+Tech&display=swap');
 
@@ -11,13 +7,13 @@
   --color-secondary: #23A0D1;  /* blue */
   --color-accent: #f6e365;     /* yellow */
   --color-neutral: #221c1d;    /* gray-black: text + outlines */
-  --color-highlight: #ffffff;  /* white */
+  --color-highlight: #ffffff;  
 
-  --color-purple: var(--color-secondary);  /* headline color */
-  --color-pink: #fbd3e0;       /* page background */
-  --color-pink-hot: #ff8fab;   /* footer band */
-  --color-lilac: #ecb4ee;      /* header strip behind the title bar */
-  --color-cream: #fff3dc;      /* cards + title bar */
+  --color-purple: var(--color-secondary);  
+  --color-pink: #fbd3e0;       
+  --color-pink-hot: #ff8fab;   
+  --color-lilac: #ecb4ee;      
+  --color-cream: #fff3dc;      
 
   --color-background: var(--color-pink);
   --color-text-dark: var(--color-neutral);

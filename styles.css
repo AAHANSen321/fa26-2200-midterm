@@ -209,6 +209,8 @@ iframe:focus-visible {
 }
 
 body > header {
+  position: relative;   /* keeps the header's bottom line on top of the hero ribbon */
+  z-index: 2;
   background-color: var(--color-cream);
   border-bottom: var(--outline);
   outline: var(--outline);
@@ -346,7 +348,7 @@ iframe {
   padding: var(--spacing-xl) var(--gutter);
   margin-top: calc(var(--spacing-xl) * -1);   /* sit directly under the title bar */
   margin-bottom: var(--spacing-xl);
-  border-bottom: var(--outline);
+  border-bottom: 4px solid var(--color-neutral);  /* same weight as the line under the nav */
   min-height: 22rem;
   display: flex;
   flex-direction: column;

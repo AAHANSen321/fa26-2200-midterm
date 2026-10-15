@@ -33,7 +33,7 @@
   --shadow: 6px 6px 0 var(--color-neutral);
 
   --gutter: clamp(1rem, 5vw, 4rem);  /* left/right breathing room */
-  --tab-width: 4rem;                 /* width of a sideways tab */
+  --tab-width: 4rem;                 
   --edge-stripe: 0.5rem;             /* each stripe on the right screen edge */
   --measure: 66ch;
 }
@@ -56,7 +56,6 @@ body {
   font-size: 1.125rem;
   line-height: 1.6;
   color: var(--color-text-dark);
-  /* Pink with a faint zig-zag texture */
   background-color: var(--color-background);
   background-image:
     linear-gradient(135deg, rgb(255 255 255 / 0.28) 25%, transparent 25%),
@@ -66,7 +65,6 @@ body {
   padding-right: calc(var(--edge-stripe) * 2);
 }
 
-/* Yellow + violet stripes running down the right edge of the screen */
 body::after {
   content: "";
   position: fixed;
@@ -81,7 +79,6 @@ body::after {
   z-index: 5;
 }
 
-/* ---------- 3. Typography ---------- */
 h1,
 h2,
 h3 {
@@ -91,7 +88,6 @@ h3 {
   overflow-wrap: anywhere;
 }
 
-/* h1: chunky purple with a hard offset shadow */
 h1 {
   font-size: clamp(2.2rem, 7vw, 4rem);
   color: var(--color-purple);
@@ -99,7 +95,6 @@ h1 {
   margin-bottom: var(--spacing-md);
 }
 
-/* h2: violet, underlined with a red / violet / yellow stripe */
 h2 {
   font-size: clamp(1.3rem, 3.5vw, 2rem);
   color: var(--color-purple);
@@ -116,7 +111,6 @@ h2 {
     left bottom / 7.5rem 0.35rem no-repeat;
 }
 
-/* h3: yellow sticker */
 h3 {
   font-size: clamp(1.05rem, 2.5vw, 1.4rem);
   display: inline-block;
@@ -153,7 +147,6 @@ main li {
   margin-bottom: var(--spacing-xs);
 }
 
-/* Bullets alternate violet / red */
 main ul > li::marker                { content: "✦  "; color: var(--color-purple); }
 main ul > li:nth-child(3n + 1)::marker { color: #c22a3a; }
 
@@ -163,7 +156,6 @@ main li > ol {
   margin-bottom: var(--spacing-sm);
 }
 
-/* ---------- 4. Links + buttons ---------- */
 a {
   color: inherit;
   text-decoration: underline;
@@ -192,7 +184,6 @@ iframe:focus-visible {
   color: var(--color-text-dark);
 }
 
-/* Add class="button" to a link for the red "Know More" style pill */
 .button {
   display: inline-block;
   padding: var(--spacing-sm) var(--spacing-lg);
@@ -219,7 +210,6 @@ iframe:focus-visible {
   color: var(--color-text-light);
 }
 
-/* ---------- 5. Skip link ---------- */
 .skip-link {
   position: absolute;
   top: var(--spacing-sm);
@@ -237,7 +227,6 @@ iframe:focus-visible {
   transform: translateY(0);
 }
 
-/* ---------- 6. Header: a retro window title bar ---------- */
 body > header {
   background-color: var(--color-cream);
   border-bottom: var(--outline);
@@ -250,7 +239,6 @@ body > header {
   gap: var(--spacing-sm) var(--spacing-lg);
 }
 
-/* Lab name / home link */
 body > header > a {
   font-family: var(--font-primary);
   font-size: 1.4rem;
@@ -261,7 +249,6 @@ body > header > a {
   margin-left: calc(var(--spacing-sm) * -1);
 }
 
-/* Three little window buttons (decorative) */
 body > header::after {
   content: "";
   flex: none;
@@ -281,7 +268,6 @@ nav {
   flex: 1 1 28rem;
 }
 
-/* Mid-width windows: links get their own full-width row under the lab name */
 @media (max-width: 1100px) {
   nav {
     flex-basis: 100%;
@@ -293,7 +279,6 @@ nav {
   }
 }
 
-/* Links wrap onto extra rows when they run out of room */
 nav ul {
   list-style: none;
   max-width: none;
@@ -327,24 +312,20 @@ nav a:active {
   color: var(--color-text-light);
 }
 
-/* Current page: red sticker (border + shadow, so it isn't color-only) */
 nav a[aria-current="page"] {
   background-color: var(--color-primary);
   border-color: var(--color-neutral);
   box-shadow: 3px 3px 0 var(--color-neutral);
 }
 
-/* ---------- 7. Main content (interior pages) ---------- */
 main {
   padding-block: var(--spacing-xl);
 }
 
-/* Everything except the full-bleed home page rows sits inside the gutter */
 main > :not(.hero):not(.panel) {
   margin-inline: var(--gutter);
 }
 
-/* Plain sections become cream cards with a colored offset shadow */
 main > section:not(.hero):not(.panel) {
   background-color: var(--color-cream);
   border: var(--outline);
@@ -367,7 +348,6 @@ aside > :last-child {
   margin-bottom: 0;
 }
 
-/* Callouts */
 aside {
   background-color: var(--color-accent);
   border: var(--outline);
@@ -386,7 +366,6 @@ aside a:hover {
   background-color: var(--color-highlight);
 }
 
-/* Embedded calendar */
 iframe {
   display: block;
   width: 100%;
@@ -396,7 +375,6 @@ iframe {
   background-color: var(--color-highlight);
 }
 
-/* ---------- 8. Home page: hero ---------- */
 .hero {
   position: relative;
   overflow: hidden;
@@ -410,7 +388,6 @@ iframe {
   justify-content: center;
 }
 
-/* Rainbow ribbon shooting off the right-hand corner */
 .hero::after {
   content: "";
   position: absolute;
@@ -440,7 +417,6 @@ iframe {
   margin-bottom: var(--spacing-sm);
 }
 
-/* "Blow. Things. Up." — red sticker, tilted */
 .hero h1 + p {
   align-self: flex-start;
   font-family: var(--font-primary);
@@ -458,10 +434,7 @@ iframe {
   margin-bottom: 0;
 }
 
-/* ---------- 9. Home page: sideways tabs, flush left ----------
-   Each .panel is one row. Its h2 is a narrow vertical box pinned to the
-   left edge of the screen with the text turned sideways; the answer sits
-   to the right of it.                                                    */
+
 .panel {
   display: grid;
   grid-template-columns: var(--tab-width) minmax(0, 1fr);
@@ -474,12 +447,12 @@ iframe {
 }
 
 .panel > h2 {
-  writing-mode: vertical-rl;       /* sideways text… */
-  transform: rotate(180deg);       /* …flipped so the letters' feet face the content */
+  writing-mode: vertical-rl;       
+  transform: rotate(180deg);       
   margin: 0;
   padding: var(--spacing-md) 0;
   display: flex;
-  align-items: center;             /* center the letters across the tab */
+  align-items: center;             /* centering the letters across the tab */
   white-space: nowrap;
   font-size: 1.15rem;
   letter-spacing: 0.06em;
@@ -494,7 +467,6 @@ iframe {
 .panel:nth-of-type(3n) > h2     { background: var(--tab-blue); color: var(--color-text-light); }
 .panel:nth-of-type(3n + 1) > h2 { background: var(--color-accent); }
 
-/* Hover / keyboard focus inside a row flips its tab to dark */
 .panel:hover > h2,
 .panel:focus-within > h2 {
   background: var(--color-neutral);
@@ -510,7 +482,6 @@ iframe {
   justify-content: center;
 }
 
-/* ---------- 10. Footer: hot pink striped band ---------- */
 body > footer {
   background-color: var(--color-pink-hot);
   background-image: repeating-linear-gradient(
@@ -552,7 +523,6 @@ footer small {
   color: var(--color-text-dark);
 }
 
-/* Disclaimer spans the full footer width */
 footer > p {
   grid-column: 1 / -1;
   max-width: none;
@@ -561,7 +531,6 @@ footer > p {
   border-top: var(--outline);
 }
 
-/* ---------- 11. Small screens ---------- */
 @media (max-width: 700px) {
   :root {
     --tab-width: 3rem;
@@ -576,7 +545,6 @@ footer > p {
     display: none;
   }
 
-  /* Phones: links line up in tidy columns */
   nav ul {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
@@ -588,7 +556,6 @@ footer > p {
     line-height: 1.3;
   }
 
-  /* Ribbon becomes a flat three-color bar along the bottom of the hero */
   .hero {
     min-height: 0;
     padding-bottom: calc(var(--spacing-xl) + 1rem);
@@ -630,7 +597,6 @@ footer > p {
   }
 }
 
-/* ---------- 12. Motion + contrast preferences ---------- */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

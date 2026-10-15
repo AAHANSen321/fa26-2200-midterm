@@ -458,19 +458,12 @@ iframe {
   color: var(--color-text-dark);
   background: var(--color-primary);
   border-right: var(--outline);
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Tab colors repeat red → blue → yellow. Change --tab-blue to swap the blue. */
 .panel { --tab-blue: var(--color-secondary); }
 .panel:nth-of-type(3n) > h2     { background: var(--tab-blue); color: var(--color-text-light); }
 .panel:nth-of-type(3n + 1) > h2 { background: var(--color-accent); }
-
-.panel:hover > h2,
-.panel:focus-within > h2 {
-  background: var(--color-neutral);
-  color: var(--color-accent);
-}
 
 .panel > div {
   background-color: var(--color-cream);
@@ -483,11 +476,11 @@ iframe {
 
 body > footer {
   background-color: var(--color-pink-hot);
-  background-image: repeating-linear-gradient(
+  /*background-image: repeating-linear-gradient(
     135deg,
     rgb(255 255 255 / 0.18) 0 4px,
     transparent 4px 12px
-  );
+  );*/
   border-top: var(--outline);
   padding: var(--spacing-lg) var(--gutter);
   display: grid;

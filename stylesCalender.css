@@ -155,10 +155,11 @@ iframe:focus-visible {
 .button {
   display: inline-block;
   padding: var(--spacing-sm) var(--spacing-lg);
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: 3rem;
   background-color: var(--color-primary);
   color: var(--color-text-dark);
   font-family: var(--font-primary);
+  font-size: 1.3rem;
   text-decoration: none;
   border: var(--outline);
   border-radius: var(--radius-pill);
@@ -299,8 +300,9 @@ main > section:not(.hero) {
   background-color: var(--color-cream);
   border: var(--outline);
   box-shadow: 6px 6px 0 var(--color-primary);
-  padding: var(--spacing-lg);
-  margin-bottom: var(--spacing-lg);
+  padding: 4rem;
+  margin: 4rem auto 5rem;
+  max-width: 56rem;
 }
 
 main > section > :first-child {
@@ -351,16 +353,15 @@ main > section > :last-child {
 .hero h1 {
   font-size: clamp(3rem, 10vw, 7rem);
   margin-bottom: 0;
-  max-width: none !important;
-  white-space: nowrap !important;
+  max-width: none;
+  white-space: nowrap;
   overflow-wrap: normal;
 }
-
 
 iframe {
   display: block;
   width: 100%;
-  min-height: 75vh;
+  min-height: 60vh;
   border: var(--outline);
   box-shadow: var(--shadow);
   background-color: var(--color-highlight);
@@ -457,7 +458,8 @@ footer > p {
   }
 
   main > section:not(.hero) {
-    padding: var(--spacing-md);
+    padding: 1.5rem;
+    margin: 2rem var(--gutter) 3rem;
   }
 
   .button {
@@ -466,7 +468,7 @@ footer > p {
   }
 
   iframe {
-    min-height: 60vh;
+    min-height: 50vh;
   }
 }
 

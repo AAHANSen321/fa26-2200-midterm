@@ -234,19 +234,23 @@ body > header::after {
     2.6rem 0 0 -2px var(--color-primary),   2.6rem 0 0 0 var(--color-neutral);
 }
 
-nav {
-  flex: 1 1 28rem;
+/* BTU logo: tall enough to nearly touch the top and bottom of the nav bar.
+   The negative margins keep it from making the bar any taller. */
+body > header > a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
 }
 
-@media (max-width: 1100px) {
-  nav {
-    flex-basis: 100%;
-    order: 3;
-  }
+.nav-logo {
+  display: block;
+  width: 3.25rem;
+  height: auto;
+  margin-block: calc((var(--spacing-sm) + var(--spacing-xs)) * -1 + 2px);
+}
 
-  body > header > a {
-    margin-right: auto;
-  }
+nav {
+  flex: 1 1 28rem;
 }
 
 nav ul {
@@ -412,6 +416,15 @@ footer > p {
 }
 
 @media (max-width: 700px) {
+  nav {
+    flex-basis: 100%;
+    order: 3;
+  }
+
+  body > header > a {
+    margin-right: auto;
+  }
+
   :root {
     --edge-stripe: 0.25rem;
   }

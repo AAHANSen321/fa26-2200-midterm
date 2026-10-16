@@ -233,6 +233,19 @@ body > header > a {
   margin-left: calc(var(--spacing-sm) * -1);
 }
 
+/* BTU logo */
+body > header > a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.nav-logo {
+  display: block;
+  width: 2.5rem;
+  height: auto;
+}
+
 nav {
   flex: 1 1 28rem;
 }
@@ -357,28 +370,24 @@ iframe {
   justify-content: center;
 }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0 0 0 auto;
-  width: 45%;
-  --line: var(--color-neutral);
-  background: linear-gradient(
-    125deg,
-    transparent 0 46%,
-    var(--line) 46% calc(46% + 2px),
-    var(--color-primary) calc(46% + 2px) 64%,
-    var(--line) 64% calc(64% + 2px),
-    var(--color-purple) calc(64% + 2px) 82%,
-    var(--line) 82% calc(82% + 2px),
-    var(--color-accent) calc(82% + 2px) 100%
-  );
+.hero {
+  background: var(--color-neutral) url("assets/Home/WHO_HOME.jpg") center 45% / cover no-repeat;
 }
 
-.hero > * {
-  position: relative;
-  z-index: 1;
-  max-width: min(var(--measure), 52%);
+.hero-card {
+  align-self: flex-start;
+  max-width: min(var(--measure), 100%);
+  padding: var(--spacing-lg);
+  background-color: rgb(255 255 255 / 0.85);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  border: var(--outline);
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+.hero-card > :first-child {
+  margin-top: 0;
 }
 
 .hero h1 {
@@ -401,6 +410,54 @@ iframe {
 
 .hero p:last-child {
   margin-bottom: 0;
+}
+
+
+.home-collage {
+  position: relative;
+  width: min(100%, 34rem);
+  aspect-ratio: 100 / 61.33;
+  margin-top: var(--spacing-lg);
+}
+
+.home-collage img {
+  position: absolute;
+  width: 58%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border: 3px solid var(--color-neutral);
+  background-color: var(--color-cream);
+}
+
+.home-collage__how {
+  top: 0;
+  right: 0;
+  z-index: 1;
+  box-shadow: 5px 5px 0 var(--color-secondary);
+}
+
+.home-collage__when {
+  bottom: 0;
+  left: 0;
+  box-shadow: 5px 5px 0 var(--color-primary);
+}
+
+/* Wide screens: lift the collage out of the text column and float it in the
+   empty space right of the What/Where panels, breaching up into When. */
+@media (min-width: 1200px) {
+  .panel--collage {
+    position: relative;
+    z-index: 1;
+  }
+
+  .panel--collage .home-collage {
+    position: absolute;
+    right: calc(var(--gutter) + var(--spacing-lg));
+    top: -5rem;
+    width: min(40rem, 100vw - var(--measure) - 14rem);
+    margin-top: 0;
+  }
 }
 
 
@@ -518,26 +575,14 @@ footer > p {
     line-height: 1.3;
   }
 
+
   .hero {
     min-height: 0;
-    padding-bottom: calc(var(--spacing-xl) + 1rem);
+    padding-inline: var(--spacing-md);
   }
 
-  .hero::after {
-    inset: auto 0 0 0;
-    width: auto;
-    height: 1rem;
-    border-top: var(--outline);
-    background: linear-gradient(
-      to right,
-      var(--color-primary) 0 33.3%,
-      var(--color-purple) 33.3% 66.6%,
-      var(--color-accent) 66.6% 100%
-    );
-  }
-
-  .hero > * {
-    max-width: var(--measure);
+  .hero-card {
+    padding: var(--spacing-md);
   }
 
   .panel {

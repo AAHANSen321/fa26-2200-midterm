@@ -144,6 +144,7 @@ a:hover {
 }
 
 a:focus-visible,
+summary:focus-visible,
 iframe:focus-visible {
   outline: 3px solid var(--color-neutral);
   outline-offset: 2px;
@@ -154,8 +155,8 @@ iframe:focus-visible {
 
 .button {
   display: inline-block;
-  padding: var(--spacing-sm) var(--spacing-lg);
-  margin-bottom: 3rem;
+  padding: 0.9rem 2.4rem;
+  margin-bottom: 2rem;
   background-color: var(--color-primary);
   color: var(--color-text-dark);
   font-family: var(--font-primary);
@@ -210,6 +211,9 @@ body > header {
 }
 
 body > header > a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
   font-family: var(--font-primary);
   font-size: 1.4rem;
   line-height: 1.1;
@@ -217,6 +221,11 @@ body > header > a {
   text-decoration: none;
   padding: var(--spacing-xs) var(--spacing-sm);
   margin-left: calc(var(--spacing-sm) * -1);
+}
+
+body > header > a img {
+  height: 3rem;
+  width: auto;
 }
 
 body > header::after {
@@ -234,23 +243,19 @@ body > header::after {
     2.6rem 0 0 -2px var(--color-primary),   2.6rem 0 0 0 var(--color-neutral);
 }
 
-/* BTU logo: tall enough to nearly touch the top and bottom of the nav bar.
-   The negative margins keep it from making the bar any taller. */
-body > header > a {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-}
-
-.nav-logo {
-  display: block;
-  width: 3.25rem;
-  height: auto;
-  margin-block: calc((var(--spacing-sm) + var(--spacing-xs)) * -1 + 2px);
-}
-
 nav {
   flex: 1 1 28rem;
+}
+
+@media (max-width: 1100px) {
+  nav {
+    flex-basis: 100%;
+    order: 3;
+  }
+
+  body > header > a {
+    margin-right: auto;
+  }
 }
 
 nav ul {
@@ -292,6 +297,61 @@ nav a[aria-current="page"] {
   box-shadow: 3px 3px 0 var(--color-neutral);
 }
 
+nav details {
+  position: relative;
+}
+
+nav summary {
+  list-style: none;
+  cursor: pointer;
+  display: block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border: 2px solid transparent;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s, box-shadow 0.2s;
+}
+
+nav summary::-webkit-details-marker {
+  display: none;
+}
+
+nav summary::before {
+  content: "\25B6\00A0";
+  font-size: 0.8em;
+}
+
+nav details[open] > summary::before {
+  content: "\25BC\00A0";
+}
+
+nav summary:hover {
+  background-color: var(--color-accent);
+  border-color: var(--color-neutral);
+  box-shadow: 3px 3px 0 var(--color-primary);
+  transform: translate(-2px, -2px);
+}
+
+nav details[open] > summary {
+  background-color: var(--color-accent);
+  border-color: var(--color-neutral);
+  box-shadow: 3px 3px 0 var(--color-neutral);
+}
+
+nav details > ul {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  left: 0;
+  z-index: 20;
+  min-width: 12rem;
+  display: grid;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm);
+  background-color: var(--color-cream);
+  border: var(--outline);
+  box-shadow: var(--shadow);
+}
+
 main {
   padding-block: var(--spacing-xl);
 }
@@ -304,8 +364,8 @@ main > section:not(.hero) {
   background-color: var(--color-cream);
   border: var(--outline);
   box-shadow: 6px 6px 0 var(--color-primary);
-  padding: 4rem;
-  margin: 4rem auto 5rem;
+  padding: 2.5rem;
+  margin: 1rem auto 3rem;
   max-width: 56rem;
 }
 
@@ -320,11 +380,11 @@ main > section > :last-child {
 .hero {
   position: relative;
   overflow: hidden;
-  padding: var(--spacing-xl) var(--gutter);
+  padding: 0.75rem var(--gutter);
   margin-top: calc(var(--spacing-xl) * -1);
   margin-bottom: var(--spacing-xl);
   border-bottom: var(--outline);
-  min-height: 22rem;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -355,7 +415,8 @@ main > section > :last-child {
 }
 
 .hero h1 {
-  font-size: clamp(3rem, 10vw, 7rem);
+  font-size: clamp(3.5rem, 11vw, 8rem);
+  line-height: 1;
   margin-bottom: 0;
   max-width: none;
   white-space: nowrap;
@@ -416,15 +477,6 @@ footer > p {
 }
 
 @media (max-width: 700px) {
-  nav {
-    flex-basis: 100%;
-    order: 3;
-  }
-
-  body > header > a {
-    margin-right: auto;
-  }
-
   :root {
     --edge-stripe: 0.25rem;
   }
@@ -448,9 +500,15 @@ footer > p {
     line-height: 1.3;
   }
 
+  nav details > ul {
+    position: static;
+    min-width: 0;
+    margin-top: var(--spacing-xs);
+    box-shadow: none;
+  }
+
   .hero {
-    min-height: 0;
-    padding-bottom: calc(var(--spacing-xl) + 1rem);
+    padding: 0.75rem var(--gutter) 1.75rem;
   }
 
   .hero::after {
@@ -472,7 +530,7 @@ footer > p {
 
   main > section:not(.hero) {
     padding: 1.5rem;
-    margin: 2rem var(--gutter) 3rem;
+    margin: 1rem var(--gutter) 2rem;
   }
 
   .button {
@@ -499,7 +557,8 @@ footer > p {
   .button:hover,
   .button:active,
   nav a:hover,
-  nav a:active {
+  nav a:active,
+  nav summary:hover {
     transform: none;
   }
 }

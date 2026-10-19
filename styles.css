@@ -3,16 +3,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Share+Tech&display=swap');
 
 :root {
-  --color-primary: #ED5A66;    /* BTU red */
-  --color-secondary: #23A0D1;  /* blue */
-  --color-accent: #f6e365;     /* yellow */
-  --color-neutral: #221c1d;    /* gray-black: text + outlines */
-  --color-highlight: #ffffff;  /* white */
+  --color-primary: #ED5A66;   
+  --color-secondary: #23A0D1;  
+  --color-accent: #f6e365;   
+  --color-neutral: #221c1d;    
+  --color-highlight: #ffffff;
 
-  --color-purple: var(--color-secondary);  /* headline color */
-  --color-pink: #fbd3e0;       /* page background */
-  --color-pink-hot: #ff8fab;   /* footer band */
-  --color-cream: #fff3dc;      /* cards + title bar */
+  --color-purple: var(--color-secondary); 
+  --color-pink: #fbd3e0;      
+  --color-pink-hot: #ff8fab;  
+  --color-cream: #fff3dc;      
 
   --color-background: var(--color-pink);
   --color-text-dark: var(--color-neutral);
@@ -32,7 +32,7 @@
   --outline: 2px solid var(--color-neutral);
   --shadow: 6px 6px 0 var(--color-neutral);
 
-  --gutter: clamp(1rem, 5vw, 4rem);  /* left/right breathing room */
+  --gutter: clamp(1rem, 5vw, 4rem);  
   --tab-width: 4rem;                 
   --measure: 66ch;
 }
@@ -66,7 +66,7 @@ h1,
 h2,
 h3 {
   font-family: var(--font-primary);
-  font-weight: 400;          /* Bungee ships in one weight */
+  font-weight: 400;      
   line-height: 1.1;
   overflow-wrap: anywhere;
 }
@@ -211,7 +211,7 @@ iframe:focus-visible {
 }
 
 body > header {
-  position: relative;   /* keeps the header's bottom line on top of the hero ribbon */
+  position: relative;   
   z-index: 2;
   background-color: var(--color-cream);
   border-bottom: var(--outline);
@@ -225,7 +225,7 @@ body > header {
 
 body > header > a {
   font-family: var(--font-primary);
-  font-size: 1.4rem;
+  font-size: 1.75rem;
   line-height: 1.1;
   color: var(--color-purple);
   text-decoration: none;
@@ -233,12 +233,18 @@ body > header > a {
   margin-left: calc(var(--spacing-sm) * -1);
 }
 
-/* BTU logo: tall enough to nearly touch the top and bottom of the nav bar.
-   The negative margins keep it from making the bar any taller. */
+
 body > header > a {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-sm);
+}
+
+
+body > header > a {
+  text-shadow: 0.1em 0.1em 0 var(--color-primary);
+  -webkit-text-stroke: 0.12em var(--color-cream);
+  paint-order: stroke fill;
 }
 
 .nav-logo {
@@ -362,9 +368,9 @@ iframe {
   position: relative;
   overflow: hidden;
   padding: var(--spacing-xl) var(--gutter);
-  margin-top: calc(var(--spacing-xl) * -1);   /* sit directly under the title bar */
+  margin-top: calc(var(--spacing-xl) * -1);   
   margin-bottom: var(--spacing-xl);
-  border-bottom: 4px solid var(--color-neutral);  /* same weight as the line under the nav */
+  border-bottom: 4px solid var(--color-neutral);  
   min-height: 22rem;
   display: flex;
   flex-direction: column;
@@ -381,8 +387,6 @@ iframe {
   max-width: min(var(--measure), 100%);
 }
 
-/* Original stripes, flipped into a wedge tucked into the top-right corner so
-   they sit over the lab equipment instead of anyone's face */
 .hero::after {
   content: "";
   position: absolute;
@@ -402,7 +406,6 @@ iframe {
   );
 }
 
-/* Dark outline keeps the title readable over the photo */
 .hero h1 {
   -webkit-text-stroke: 0.05em var(--color-neutral);
   paint-order: stroke fill;
@@ -440,9 +443,7 @@ iframe {
 }
 
 
-/* Photos in the When/Where panels. They are taken out of the flow so the
-   panels keep their size, then overhang the black lines above and below by
-   --photo-overhang to fill more of the empty space. */
+
 .panel--photo > div {
   position: relative;
 }
@@ -457,8 +458,7 @@ iframe {
   border: 3px solid var(--color-neutral);
 }
 
-/* Centered in a band just after the end of the text, so it sits close to the
-   words and never covers the text of the panels it overhangs */
+
 .panel--photo-gap .panel-photo {
   --photo-band: 40rem;
   left: calc(var(--spacing-xl) + var(--measure));
@@ -472,6 +472,47 @@ iframe {
 }
 
 
+
+.showcase {
+  margin-top: var(--spacing-xl);
+}
+
+.showcase-collage {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  aspect-ratio: 920 / 1220;
+  width: min(100%, 42rem);
+  margin-inline: auto;
+}
+
+.showcase-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 3px solid var(--color-neutral);
+}
+
+.showcase-photo--top {
+  grid-column: 1 / 8;
+  grid-row: 1 / 6;
+  object-position: center bottom;
+  box-shadow: 5px 5px 0 var(--color-primary);
+}
+
+.showcase-photo--middle {
+  grid-column: 6 / 13;
+  grid-row: 4 / 9;
+  z-index: 1;
+  box-shadow: 5px 5px 0 var(--color-secondary);
+}
+
+.showcase-photo--bottom {
+  grid-column: 1 / 8;
+  grid-row: 8 / 13;
+  box-shadow: 5px 5px 0 var(--color-accent);
+}
+
 .panel {
   display: grid;
   grid-template-columns: var(--tab-width) minmax(0, 1fr);
@@ -479,7 +520,8 @@ iframe {
   margin-right: var(--gutter);
 }
 
-.panel:last-of-type {
+.panel:last-of-type,
+.panel:has(+ :not(.panel)) {
   border-bottom: var(--outline);
 }
 
@@ -489,7 +531,7 @@ iframe {
   margin: 0;
   padding: var(--spacing-md) 0;
   display: flex;
-  align-items: center;             /* centering the letters across the tab */
+  align-items: center;       
   white-space: nowrap;
   font-size: 1.15rem;
   letter-spacing: 0.06em;
@@ -498,7 +540,6 @@ iframe {
   border-right: var(--outline);
 }
 
-/* Tab colors repeat red → blue → yellow. Change --tab-blue to swap the blue. */
 .panel { --tab-blue: var(--color-secondary); }
 .panel:nth-of-type(3n) > h2     { background: var(--tab-blue); color: var(--color-text-light); }
 .panel:nth-of-type(3n + 1) > h2 { background: var(--color-accent); }
@@ -522,7 +563,7 @@ body > footer {
   border-top: var(--outline);
   padding: var(--spacing-lg) var(--gutter);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;  /* address left, links right */
+  grid-template-columns: minmax(0, 1fr) auto;  
   gap: var(--spacing-md) var(--spacing-xl);
 }
 
@@ -536,13 +577,12 @@ footer strong {
   font-weight: 400;
 }
 
-/* Links: pushed to the far right and dropped one line,
-   so they start level with the street address, not "BTU Lab" */
+
 footer ul {
   list-style: none;
   justify-self: end;
   text-align: right;
-  margin-top: 1.6em;   /* one line (matches body line-height) */
+  margin-top: 1.6em;  
 }
 
 footer li {

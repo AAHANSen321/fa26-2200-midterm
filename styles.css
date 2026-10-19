@@ -440,33 +440,34 @@ iframe {
 }
 
 
-/* Photos inside the When/Where panels, sized to the panel's height so the
-   panels stay the same height. */
+/* Photos in the When/Where panels. They are taken out of the flow so the
+   panels keep their size, then overhang the black lines above and below by
+   --photo-overhang to fill more of the empty space. */
 .panel--photo > div {
   position: relative;
 }
 
 .panel-photo {
+  --photo-overhang: 3rem;
   position: absolute;
-  top: var(--spacing-sm);
-  height: calc(100% - var(--spacing-sm) * 2 - 4px);
+  z-index: 1;
+  top: calc(var(--photo-overhang) * -1);
+  height: calc(100% + var(--photo-overhang) * 2);
   width: auto;
   border: 3px solid var(--color-neutral);
 }
 
 /* Centered in a band just after the end of the text, so it sits close to the
-   words instead of drifting toward the panel's far edge on wide screens */
+   words and never covers the text of the panels it overhangs */
 .panel--photo-gap .panel-photo {
-  --photo-band: 26rem;
+  --photo-band: 40rem;
   left: calc(var(--spacing-xl) + var(--measure));
   right: max(0px, 100% - var(--spacing-xl) - var(--measure) - var(--photo-band));
   margin-inline: auto;
   box-shadow: 4px 4px 0 var(--color-secondary);
 }
 
-.panel--photo-center .panel-photo {
-  left: 50%;
-  transform: translateX(-50%);
+.panel--photo-alt .panel-photo {
   box-shadow: 4px 4px 0 var(--color-primary);
 }
 
@@ -614,14 +615,12 @@ footer > p {
   }
 
   .panel-photo,
-  .panel--photo-gap .panel-photo,
-  .panel--photo-center .panel-photo {
+  .panel--photo-gap .panel-photo {
     position: static;
     align-self: center;
     width: 100%;
     height: auto;
     margin: var(--spacing-md) 0 0;
-    transform: none;
   }
 
   main > section:not(.hero):not(.panel),

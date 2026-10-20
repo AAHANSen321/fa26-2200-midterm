@@ -152,6 +152,9 @@ body > header > a {
   text-decoration: none;
   padding: var(--spacing-xs) var(--spacing-sm);
   margin-left: calc(var(--spacing-sm) * -1);
+  text-shadow: 0.1em 0.1em 0 var(--color-primary);
+  -webkit-text-stroke: 0.12em var(--color-cream);
+  paint-order: stroke fill;
 }
 
 body > header > a img {
@@ -441,6 +444,21 @@ main > section:first-of-type > h2 {
   background-color: var(--color-primary);
 }
 
+main > section > h3 small {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.4em;
+  padding: 0.1em 0.6em;
+  font-family: var(--font-secondary);
+  font-size: 0.6em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-text-dark);
+  background-color: var(--color-highlight);
+  border: var(--outline);
+  border-radius: var(--radius-pill);
+}
+
 main > section > p {
   margin-bottom: var(--spacing-xs);
   max-width: none;
@@ -450,7 +468,8 @@ main > section > p:has(a[href^="mailto"]) {
   margin: var(--spacing-sm) 0 var(--spacing-md);
 }
 
-main > section a[href^="mailto"] {
+main > section a[href^="mailto"],
+main > section a[href*="linkedin"] {
   display: inline-block;
   padding: 0.35em 1em;
   font-size: 0.95rem;
@@ -469,13 +488,19 @@ main > section a[href^="mailto"]::before {
   content: "\2709\00A0\00A0";
 }
 
-main > section a[href^="mailto"]:hover {
+main > section a[href*="linkedin"] {
+  margin-left: 0.4rem;
+}
+
+main > section a[href^="mailto"]:hover,
+main > section a[href*="linkedin"]:hover {
   background-color: var(--color-accent);
   transform: translate(-2px, -2px);
   box-shadow: 5px 5px 0 var(--color-neutral);
 }
 
-main > section a[href^="mailto"]:active {
+main > section a[href^="mailto"]:active,
+main > section a[href*="linkedin"]:active {
   transform: translate(2px, 2px);
   box-shadow: 0 0 0 var(--color-neutral);
   background-color: var(--color-secondary);
@@ -520,6 +545,23 @@ main > section > ul > li:nth-child(3n + 2) {
 
 main > section > ul > li:nth-child(3n) {
   background-color: var(--color-accent);
+}
+
+main > section.graduated {
+  background-color: color-mix(in srgb, var(--color-cream) 70%, white);
+}
+
+main > section.graduated > h3 {
+  background-color: var(--color-pink);
+}
+
+main > section.graduated > h3 small {
+  background-color: var(--color-primary);
+}
+
+main > section.graduated > p,
+main > section.graduated > ul > li {
+  color: var(--color-text-muted);
 }
 
 body > footer {
@@ -623,9 +665,12 @@ footer > p {
     transform: none;
   }
 
-  main > section a[href^="mailto"] {
+  main > section a[href^="mailto"],
+  main > section a[href*="linkedin"] {
     display: block;
     text-align: center;
+    margin-left: 0;
+    margin-top: var(--spacing-xs);
   }
 }
 
@@ -645,7 +690,9 @@ footer > p {
   nav summary:hover,
   main > section:hover,
   main > section a[href^="mailto"]:hover,
-  main > section a[href^="mailto"]:active {
+  main > section a[href^="mailto"]:active,
+  main > section a[href*="linkedin"]:hover,
+  main > section a[href*="linkedin"]:active {
     transform: none;
   }
 }
@@ -658,13 +705,8 @@ footer > p {
 
   main > section > ul > li,
   main > section > h2,
-  main > section > h3 {
+  main > section > h3,
+  main > section > h3 small {
     border: 1px solid CanvasText;
   }
-}
-
-body > header > a {
-  text-shadow: 0.1em 0.1em 0 var(--color-primary);
-  -webkit-text-stroke: 0.12em var(--color-cream);
-  paint-order: stroke fill;
 }

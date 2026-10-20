@@ -6,17 +6,11 @@
   --color-accent: #f6e365;
   --color-neutral: #221c1d;
   --color-highlight: #ffffff;
-
-  --color-purple: var(--color-secondary);
   --color-pink: #fbd3e0;
   --color-pink-hot: #ff8fab;
-  --color-lilac: #ecb4ee;
   --color-cream: #fff3dc;
-
-  --color-background: var(--color-pink);
-  --color-text-dark: var(--color-neutral);
-  --color-text-light: #221c1d;
-  --color-text-muted: color-mix(in srgb, var(--color-text-dark) 78%, transparent);
+  --color-text-dark: #221c1d;
+  --color-text-muted: rgba(34, 28, 29, 0.78);
 
   --font-primary: 'Bungee', 'Arial Black', Impact, sans-serif;
   --font-secondary: 'Share Tech', ui-monospace, 'Courier New', monospace;
@@ -31,7 +25,7 @@
   --outline: 2px solid var(--color-neutral);
   --shadow: 6px 6px 0 var(--color-neutral);
 
-  --gutter: clamp(1rem, 5vw, 4rem);
+  --gutter: 4rem;
   --measure: 66ch;
 }
 
@@ -53,11 +47,14 @@ body {
   font-size: 1.125rem;
   line-height: 1.6;
   color: var(--color-text-dark);
-  background-color: var(--color-background);
+  background-color: var(--color-pink);
   background-image:
-    linear-gradient(135deg, rgb(255 255 255 / 0.28) 25%, transparent 25%),
-    linear-gradient(225deg, rgb(255 255 255 / 0.28) 25%, transparent 25%);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.28) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(255, 255, 255, 0.28) 25%, transparent 25%);
   background-size: 24px 12px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 h1,
@@ -89,7 +86,7 @@ small {
 a {
   color: inherit;
   text-decoration: underline;
-  text-decoration-color: var(--color-purple);
+  text-decoration-color: var(--color-secondary);
   text-decoration-thickness: 0.18em;
   text-underline-offset: 0.2em;
   transition: background-color 0.3s ease, text-decoration-color 0.3s ease;
@@ -130,7 +127,7 @@ summary:focus-visible {
   transform: translateY(0);
 }
 
-body > header {
+header {
   background-color: var(--color-cream);
   border-bottom: var(--outline);
   outline: var(--outline);
@@ -141,25 +138,28 @@ body > header {
   gap: var(--spacing-sm) var(--spacing-lg);
 }
 
-body > header > a {
+header > a {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-sm);
   font-family: var(--font-primary);
   font-size: 1.75rem;
   line-height: 1.1;
-  color: var(--color-purple);
+  color: var(--color-secondary);
   text-decoration: none;
   padding: var(--spacing-xs) var(--spacing-sm);
-  margin-left: calc(var(--spacing-sm) * -1);
+  margin-left: -0.6rem;
+  text-shadow: 0.1em 0.1em 0 var(--color-primary);
+  -webkit-text-stroke: 0.12em var(--color-cream);
+  paint-order: stroke fill;
 }
 
-body > header > a img {
+header > a img {
   height: 3rem;
   width: auto;
 }
 
-body > header::after {
+header::after {
   content: "";
   flex: none;
   align-self: flex-start;
@@ -170,23 +170,14 @@ body > header::after {
   background-color: var(--color-accent);
   border: var(--outline);
   box-shadow:
-    1.3rem 0 0 -2px var(--color-secondary), 1.3rem 0 0 0 var(--color-neutral),
-    2.6rem 0 0 -2px var(--color-primary),   2.6rem 0 0 0 var(--color-neutral);
+    1.3rem 0 0 -2px var(--color-secondary),
+    1.3rem 0 0 0 var(--color-neutral),
+    2.6rem 0 0 -2px var(--color-primary),
+    2.6rem 0 0 0 var(--color-neutral);
 }
 
 nav {
   flex: 1 1 28rem;
-}
-
-@media (max-width: 1100px) {
-  nav {
-    flex-basis: 100%;
-    order: 3;
-  }
-
-  body > header > a {
-    margin-right: auto;
-  }
 }
 
 nav ul {
@@ -198,7 +189,8 @@ nav ul {
   gap: var(--spacing-xs) var(--spacing-sm);
 }
 
-nav a {
+nav a,
+nav summary {
   display: block;
   padding: var(--spacing-xs) var(--spacing-sm);
   font-weight: 700;
@@ -208,7 +200,8 @@ nav a {
   transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s, box-shadow 0.2s;
 }
 
-nav a:hover {
+nav a:hover,
+nav summary:hover {
   background-color: var(--color-accent);
   border-color: var(--color-neutral);
   box-shadow: 3px 3px 0 var(--color-primary);
@@ -219,7 +212,6 @@ nav a:active {
   transform: translate(1px, 1px);
   box-shadow: none;
   background-color: var(--color-secondary);
-  color: var(--color-text-light);
 }
 
 nav a[aria-current="page"] {
@@ -235,12 +227,6 @@ nav details {
 nav summary {
   list-style: none;
   cursor: pointer;
-  display: block;
-  padding: var(--spacing-xs) var(--spacing-sm);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  border: 2px solid transparent;
-  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s, box-shadow 0.2s;
 }
 
 nav summary::-webkit-details-marker {
@@ -252,28 +238,22 @@ nav summary::before {
   font-size: 0.8em;
 }
 
-nav details[open] > summary::before {
+nav details[open] summary::before {
   content: "\25BC\00A0";
 }
 
-nav summary:hover {
-  background-color: var(--color-accent);
-  border-color: var(--color-neutral);
-  box-shadow: 3px 3px 0 var(--color-primary);
-  transform: translate(-2px, -2px);
-}
-
-nav details[open] > summary {
+nav details[open] summary {
   background-color: var(--color-accent);
   border-color: var(--color-neutral);
   box-shadow: 3px 3px 0 var(--color-neutral);
 }
 
-nav details > ul {
+nav details ul {
   position: absolute;
-  top: calc(100% + 0.4rem);
+  top: 100%;
   left: 0;
   z-index: 20;
+  margin-top: 0.4rem;
   min-width: 12rem;
   display: grid;
   gap: var(--spacing-xs);
@@ -285,52 +265,66 @@ nav details > ul {
 
 main {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
   gap: var(--spacing-lg);
   padding: 0 var(--gutter) var(--spacing-xl);
 }
 
-main > :not(section) {
+main > h1,
+main > h2,
+main > p {
   grid-column: 1 / -1;
 }
 
-main > h1:first-child {
+main > p {
+  font-size: 1.15rem;
+  margin-bottom: 0;
+}
+
+.page-title {
   position: relative;
   overflow: hidden;
-  font-size: clamp(3.5rem, 11vw, 8rem);
+  font-size: 8rem;
   line-height: 1;
-  color: var(--color-purple);
+  color: var(--color-secondary);
   text-shadow: 0.06em 0.06em 0 var(--color-accent);
   padding: 0.75rem var(--gutter);
-  margin-inline: calc(var(--gutter) * -1);
+  margin-left: -4rem;
+  margin-right: -4rem;
   margin-bottom: var(--spacing-md);
   border-bottom: var(--outline);
   white-space: nowrap;
   overflow-wrap: normal;
 }
 
-main > h1:first-child::after {
+.page-title::after {
   content: "";
   position: absolute;
-  inset: 0 0 0 auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
   width: 45%;
-  --line: var(--color-neutral);
   background: linear-gradient(
     125deg,
-    transparent 0 46%,
-    var(--line) 46% calc(46% + 2px),
-    var(--color-primary) calc(46% + 2px) 64%,
-    var(--line) 64% calc(64% + 2px),
-    var(--color-purple) calc(64% + 2px) 82%,
-    var(--line) 82% calc(82% + 2px),
-    var(--color-accent) calc(82% + 2px) 100%
+    transparent 46%,
+    var(--color-neutral) 46%,
+    var(--color-neutral) calc(46% + 2px),
+    var(--color-primary) calc(46% + 2px),
+    var(--color-primary) 64%,
+    var(--color-neutral) 64%,
+    var(--color-neutral) calc(64% + 2px),
+    var(--color-secondary) calc(64% + 2px),
+    var(--color-secondary) 82%,
+    var(--color-neutral) 82%,
+    var(--color-neutral) calc(82% + 2px),
+    var(--color-accent) calc(82% + 2px)
   );
 }
 
-main > h1:first-child + p {
+.tagline {
   justify-self: start;
   font-family: var(--font-primary);
-  font-size: clamp(1.1rem, 3vw, 1.7rem);
+  font-size: 1.7rem;
   line-height: 1.15;
   background-color: var(--color-primary);
   border: var(--outline);
@@ -340,54 +334,40 @@ main > h1:first-child + p {
   transform: rotate(-2deg);
 }
 
-main > p {
-  font-size: 1.15rem;
-  margin-bottom: 0;
-}
-
-main > h1:not(:first-child),
-main > h2 {
-  color: var(--color-purple);
+.section-title {
+  color: var(--color-secondary);
   margin-top: var(--spacing-xl);
   margin-bottom: 0;
   padding-bottom: var(--spacing-sm);
-  background:
-    linear-gradient(
-      to right,
-      var(--color-primary) 0 33.3%,
-      var(--color-purple) 33.3% 66.6%,
-      var(--color-accent) 66.6% 100%
-    )
-    left bottom / 7.5rem 0.35rem no-repeat;
+  background-image: linear-gradient(to right, var(--color-primary) 33.3%, var(--color-secondary) 33.3%, var(--color-secondary) 66.6%, var(--color-accent) 66.6%);
+  background-position: left bottom;
+  background-size: 7.5rem 0.35rem;
+  background-repeat: no-repeat;
 }
 
-main > h2 {
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
+h2.section-title {
+  font-size: 2.4rem;
 }
 
-main > h1:not(:first-child) {
-  font-size: clamp(2rem, 5vw, 3rem);
+h1.section-title {
+  font-size: 3rem;
   text-shadow: 0.06em 0.06em 0 var(--color-accent);
 }
 
-main > h1:not(:first-child) ~ p {
-  max-width: var(--measure);
-}
-
-main > p:nth-last-child(-n + 3) {
+.signature {
   margin: 0;
   font-weight: 700;
   line-height: 1.4;
 }
 
-main > p:nth-last-child(3) {
+.signature-name {
   margin-top: var(--spacing-md);
   font-family: var(--font-primary);
   font-weight: 400;
-  color: var(--color-purple);
+  color: var(--color-secondary);
 }
 
-main > section {
+.staff-card {
   background-color: var(--color-cream);
   border: var(--outline);
   box-shadow: 6px 6px 0 var(--color-primary);
@@ -397,37 +377,32 @@ main > section {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-main > section:hover {
+.staff-card:hover {
   transform: translate(-3px, -3px);
   box-shadow: 9px 9px 0 var(--color-primary);
 }
 
-main > section:nth-of-type(3n + 2) {
-  box-shadow: 6px 6px 0 var(--color-purple);
+.staff-card:nth-of-type(3n + 2) {
+  box-shadow: 6px 6px 0 var(--color-secondary);
 }
 
-main > section:nth-of-type(3n + 2):hover {
-  box-shadow: 9px 9px 0 var(--color-purple);
+.staff-card:nth-of-type(3n + 2):hover {
+  box-shadow: 9px 9px 0 var(--color-secondary);
 }
 
-main > section:nth-of-type(3n) {
+.staff-card:nth-of-type(3n) {
   box-shadow: 6px 6px 0 var(--color-accent);
 }
 
-main > section:nth-of-type(3n):hover {
+.staff-card:nth-of-type(3n):hover {
   box-shadow: 9px 9px 0 var(--color-accent);
 }
 
-main > section:first-of-type {
-  grid-column: 1 / -1;
-  background-color: var(--color-accent);
-}
-
-main > section > h2,
-main > section > h3 {
+.staff-card h2,
+.staff-card h3 {
   display: inline-block;
   align-self: flex-start;
-  font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+  font-size: 1.5rem;
   color: var(--color-text-dark);
   background-color: var(--color-accent);
   border: var(--outline);
@@ -436,21 +411,26 @@ main > section > h3 {
   margin: 0 0 var(--spacing-md);
 }
 
-main > section:first-of-type > h2 {
-  font-size: clamp(1.4rem, 3.2vw, 2rem);
-  background-color: var(--color-primary);
-}
-
-main > section > p {
+.staff-card p {
   margin-bottom: var(--spacing-xs);
   max-width: none;
 }
 
-main > section > p:has(a[href^="mailto"]) {
+.director {
+  grid-column: 1 / -1;
+  background-color: var(--color-accent);
+}
+
+.director h2 {
+  font-size: 2rem;
+  background-color: var(--color-primary);
+}
+
+.staff-card .email {
   margin: var(--spacing-sm) 0 var(--spacing-md);
 }
 
-main > section a[href^="mailto"] {
+.email a {
   display: inline-block;
   padding: 0.35em 1em;
   font-size: 0.95rem;
@@ -465,43 +445,41 @@ main > section a[href^="mailto"] {
   transition: background-color 0.3s ease, transform 0.2s, box-shadow 0.2s;
 }
 
-main > section a[href^="mailto"]::before {
+.email a::before {
   content: "\2709\00A0\00A0";
 }
 
-main > section a[href^="mailto"]:hover {
+.email a:hover {
   background-color: var(--color-accent);
   transform: translate(-2px, -2px);
   box-shadow: 5px 5px 0 var(--color-neutral);
 }
 
-main > section a[href^="mailto"]:active {
+.email a:active {
   transform: translate(2px, 2px);
-  box-shadow: 0 0 0 var(--color-neutral);
+  box-shadow: none;
   background-color: var(--color-secondary);
 }
 
-main > section > ul {
+.staff-card .skills-label {
+  font-family: var(--font-primary);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.staff-card ul {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-xs) var(--spacing-sm);
   max-width: none;
-  margin: 0;
-  margin-top: auto;
+  margin: auto 0 0;
 }
 
-main > section > ul + p,
-main > section > p:has(+ ul) {
-  font-family: var(--font-primary);
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-purple);
-  margin-bottom: var(--spacing-sm);
-}
-
-main > section > ul > li {
+.staff-card li {
   font-size: 0.95rem;
   line-height: 1.3;
   padding: 0.3em 0.75em;
@@ -510,19 +488,20 @@ main > section > ul > li {
   box-shadow: 2px 2px 0 var(--color-neutral);
 }
 
-main > section > ul > li:nth-child(3n + 1) {
+.staff-card li:nth-child(3n + 1) {
   background-color: var(--color-pink);
 }
 
-main > section > ul > li:nth-child(3n + 2) {
-  background-color: color-mix(in srgb, var(--color-secondary) 25%, white);
+.staff-card li:nth-child(3n + 2) {
+  background-color: #c8e7f3;
 }
 
-main > section > ul > li:nth-child(3n) {
+.staff-card li:nth-child(3n) {
   background-color: var(--color-accent);
 }
 
-body > footer {
+footer {
+  margin-top: auto;
   background-color: var(--color-pink-hot);
   border-top: var(--outline);
   padding: var(--spacing-lg) var(--gutter);
@@ -567,12 +546,25 @@ footer > p {
 }
 
 @media (max-width: 700px) {
+  :root {
+    --gutter: 5vw;
+  }
+
   body {
     font-size: 1.05rem;
   }
 
-  body > header::after {
+  header::after {
     display: none;
+  }
+
+  header > a {
+    margin-right: auto;
+  }
+
+  nav {
+    flex-basis: 100%;
+    order: 3;
   }
 
   nav ul {
@@ -586,7 +578,7 @@ footer > p {
     line-height: 1.3;
   }
 
-  nav details > ul {
+  nav details ul {
     position: static;
     min-width: 0;
     margin-top: var(--spacing-xs);
@@ -594,36 +586,56 @@ footer > p {
   }
 
   main {
+    grid-template-columns: 1fr;
     gap: var(--spacing-md);
   }
 
-  main > h1:first-child {
-    font-size: clamp(2.6rem, 14vw, 4rem);
+  .page-title {
+    font-size: 14vw;
     padding: 0.75rem var(--gutter) 1.75rem;
+    margin-left: -5vw;
+    margin-right: -5vw;
   }
 
-  main > h1:first-child::after {
-    inset: auto 0 0 0;
+  .page-title::after {
+    top: auto;
+    left: 0;
     width: auto;
     height: 1rem;
     border-top: var(--outline);
-    background: linear-gradient(
-      to right,
-      var(--color-primary) 0 33.3%,
-      var(--color-purple) 33.3% 66.6%,
-      var(--color-accent) 66.6% 100%
-    );
+    background: linear-gradient(to right, var(--color-primary) 33.3%, var(--color-secondary) 33.3%, var(--color-secondary) 66.6%, var(--color-accent) 66.6%);
   }
 
-  main > section {
+  .tagline {
+    font-size: 1.1rem;
+  }
+
+  h2.section-title {
+    font-size: 1.6rem;
+  }
+
+  h1.section-title {
+    font-size: 2rem;
+  }
+
+  .staff-card {
     padding: var(--spacing-md);
   }
 
-  main > section:hover {
+  .staff-card:hover {
     transform: none;
   }
 
-  main > section a[href^="mailto"] {
+  .staff-card h2,
+  .staff-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .director h2 {
+    font-size: 1.4rem;
+  }
+
+  .email a {
     display: block;
     text-align: center;
   }
@@ -643,28 +655,22 @@ footer > p {
   nav a:hover,
   nav a:active,
   nav summary:hover,
-  main > section:hover,
-  main > section a[href^="mailto"]:hover,
-  main > section a[href^="mailto"]:active {
+  .staff-card:hover,
+  .email a:hover,
+  .email a:active {
     transform: none;
   }
 }
 
 @media (forced-colors: active) {
-  main > h2,
-  main > h1:not(:first-child) {
+  h2,
+  .section-title {
     background: none;
   }
 
-  main > section > ul > li,
-  main > section > h2,
-  main > section > h3 {
+  .staff-card li,
+  .staff-card h2,
+  .staff-card h3 {
     border: 1px solid CanvasText;
   }
-}
-
-body > header > a {
-  text-shadow: 0.1em 0.1em 0 var(--color-primary);
-  -webkit-text-stroke: 0.12em var(--color-cream);
-  paint-order: stroke fill;
 }

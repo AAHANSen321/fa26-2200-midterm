@@ -420,9 +420,15 @@ main {
   background-color: var(--color-cream);
   border-right: var(--outline);
   padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-lg) var(--spacing-xl);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: minmax(0, var(--measure)) 1fr;
+  align-content: center;
+  align-items: center;
+  column-gap: var(--spacing-xl);
+}
+
+.panel > div > :not(img) {
+  grid-column: 1;
 }
 
 .panel > div > :last-child {
@@ -430,21 +436,20 @@ main {
 }
 
 .panel-photo {
-  position: absolute;
-  z-index: 1;
-  top: -3rem;
-  left: calc(66ch + 3rem);
-  right: max(0px, calc(100% - 66ch - 43rem));
-  height: calc(100% + 6rem);
-  width: auto;
-  margin: 0 auto;
+  grid-column: 2;
+  grid-row: 1 / span 6;
+  align-self: center;
+  justify-self: center;
+  width: 100%;
+  max-width: 22rem;
+  height: auto;
+  margin: 0;
   border: 3px solid var(--color-neutral);
   box-shadow: 4px 4px 0 var(--color-secondary);
 }
 
 .big-photo {
-  top: -5rem;
-  height: calc(100% + 10rem);
+  max-width: 26rem;
 }
 
 .red-shadow {
@@ -618,14 +623,15 @@ footer > p {
   .panel > div {
     border-right: 0;
     padding: var(--spacing-md);
+    grid-template-columns: 1fr;
   }
 
   .panel-photo,
   .big-photo {
-    position: static;
-    align-self: center;
-    width: 100%;
-    height: auto;
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: stretch;
+    max-width: 100%;
     margin: var(--spacing-md) 0 0;
   }
 

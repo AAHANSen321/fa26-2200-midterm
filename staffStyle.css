@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Share+Tech&display=swap');
 
-
 :root {
  --color-primary: #ED5A66;
  --color-secondary: #23A0D1;
@@ -12,28 +11,19 @@
  --color-cream: #fff3dc;
  --color-text-dark: #221c1d;
  --color-text-muted: rgba(34, 28, 29, 0.78);
-
-
  --font-primary: 'Bungee', 'Arial Black', Impact, sans-serif;
  --font-secondary: 'Share Tech', ui-monospace, 'Courier New', monospace;
-
-
  --spacing-xs: 0.2rem;
  --spacing-sm: 0.6rem;
  --spacing-md: 1rem;
  --spacing-lg: 1.7rem;
  --spacing-xl: 3rem;
-
-
  --radius-pill: 999px;
  --outline: 2px solid var(--color-neutral);
  --shadow: 6px 6px 0 var(--color-neutral);
-
-
  --gutter: 4rem;
  --measure: 66ch;
 }
-
 
 *,
 *::before,
@@ -43,12 +33,10 @@
  box-sizing: border-box;
 }
 
-
 html {
  scroll-behavior: smooth;
  -webkit-text-size-adjust: 100%;
 }
-
 
 body {
  font-family: var(--font-secondary);
@@ -65,7 +53,6 @@ body {
  flex-direction: column;
 }
 
-
 h1,
 h2,
 h3 {
@@ -75,7 +62,6 @@ h3 {
  overflow-wrap: anywhere;
 }
 
-
 p,
 ul,
 ol,
@@ -84,17 +70,14 @@ address {
  max-width: var(--measure);
 }
 
-
 address {
  font-style: normal;
 }
-
 
 small {
  font-size: 0.85rem;
  color: var(--color-text-muted);
 }
-
 
 a {
  color: inherit;
@@ -105,17 +88,14 @@ a {
  transition: background-color 0.3s ease, text-decoration-color 0.3s ease;
 }
 
-
 a:visited {
  text-decoration-color: var(--color-primary);
 }
-
 
 a:hover {
  background-color: var(--color-accent);
  text-decoration-color: var(--color-neutral);
 }
-
 
 a:focus-visible,
 summary:focus-visible {
@@ -125,7 +105,6 @@ summary:focus-visible {
  background-color: var(--color-accent);
  color: var(--color-text-dark);
 }
-
 
 .skip-link {
  position: absolute;
@@ -140,11 +119,9 @@ summary:focus-visible {
  transform: translateY(-300%);
 }
 
-
 .skip-link:focus {
  transform: translateY(0);
 }
-
 
 header {
  background-color: var(--color-cream);
@@ -156,7 +133,6 @@ header {
  align-items: center;
  gap: var(--spacing-sm) var(--spacing-lg);
 }
-
 
 header > a {
  display: inline-flex;
@@ -174,12 +150,10 @@ header > a {
  paint-order: stroke fill;
 }
 
-
 header > a img {
  height: 3rem;
  width: auto;
 }
-
 
 header::after {
  content: "";
@@ -198,11 +172,9 @@ header::after {
    2.6rem 0 0 0 var(--color-neutral);
 }
 
-
 nav {
  flex: 1 1 28rem;
 }
-
 
 nav ul {
  list-style: none;
@@ -212,7 +184,6 @@ nav ul {
  flex-wrap: wrap;
  gap: var(--spacing-xs) var(--spacing-sm);
 }
-
 
 nav a,
 nav summary {
@@ -225,7 +196,6 @@ nav summary {
  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s, box-shadow 0.2s;
 }
 
-
 nav a:hover,
 nav summary:hover {
  background-color: var(--color-accent);
@@ -234,13 +204,11 @@ nav summary:hover {
  transform: translate(-2px, -2px);
 }
 
-
 nav a:active {
  transform: translate(1px, 1px);
  box-shadow: none;
  background-color: var(--color-secondary);
 }
-
 
 nav a[aria-current="page"] {
  background-color: var(--color-primary);
@@ -248,40 +216,33 @@ nav a[aria-current="page"] {
  box-shadow: 3px 3px 0 var(--color-neutral);
 }
 
-
 nav details {
  position: relative;
 }
-
 
 nav summary {
  list-style: none;
  cursor: pointer;
 }
 
-
 nav summary::-webkit-details-marker {
  display: none;
 }
-
 
 nav summary::before {
  content: "\25B6\00A0";
  font-size: 0.8em;
 }
 
-
 nav details[open] summary::before {
  content: "\25BC\00A0";
 }
-
 
 nav details[open] summary {
  background-color: var(--color-accent);
  border-color: var(--color-neutral);
  box-shadow: 3px 3px 0 var(--color-neutral);
 }
-
 
 nav details ul {
  position: absolute;
@@ -298,7 +259,6 @@ nav details ul {
  box-shadow: var(--shadow);
 }
 
-
 main {
  display: grid;
  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
@@ -306,19 +266,16 @@ main {
  padding: 0 var(--gutter) var(--spacing-xl);
 }
 
-
 main > h1,
 main > h2,
 main > p {
  grid-column: 1 / -1;
 }
 
-
 main > p {
  font-size: 1.15rem;
  margin-bottom: 0;
 }
-
 
 .page-title {
  position: relative;
@@ -335,7 +292,6 @@ main > p {
  white-space: nowrap;
  overflow-wrap: normal;
 }
-
 
 .page-title::after {
  content: "";
@@ -361,7 +317,6 @@ main > p {
  );
 }
 
-
 .tagline {
  justify-self: start;
  font-family: var(--font-primary);
@@ -375,7 +330,6 @@ main > p {
  transform: rotate(-2deg);
 }
 
-
 .section-title {
  color: var(--color-secondary);
  margin-top: var(--spacing-xl);
@@ -387,24 +341,20 @@ main > p {
  background-repeat: no-repeat;
 }
 
-
 h2.section-title {
  font-size: 2.4rem;
 }
-
 
 h1.section-title {
  font-size: 3rem;
  text-shadow: 0.06em 0.06em 0 var(--color-accent);
 }
 
-
 .signature {
  margin: 0;
  font-weight: 700;
  line-height: 1.4;
 }
-
 
 .signature-name {
  margin-top: var(--spacing-md);
@@ -413,8 +363,8 @@ h1.section-title {
  color: var(--color-secondary);
 }
 
-
-.staff-card {
+.staff-card,
+main > section {
  background-color: var(--color-cream);
  border: var(--outline);
  box-shadow: 6px 6px 0 var(--color-primary);
@@ -424,35 +374,32 @@ h1.section-title {
  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-
-.staff-card:hover {
+.staff-card:hover,
+main > section:hover {
  transform: translate(-3px, -3px);
  box-shadow: 9px 9px 0 var(--color-primary);
 }
 
-
-.staff-card:nth-of-type(3n + 2) {
+main > section:nth-of-type(3n + 2) {
  box-shadow: 6px 6px 0 var(--color-secondary);
 }
 
-
-.staff-card:nth-of-type(3n + 2):hover {
+main > section:nth-of-type(3n + 2):hover {
  box-shadow: 9px 9px 0 var(--color-secondary);
 }
 
-
-.staff-card:nth-of-type(3n) {
+main > section:nth-of-type(3n) {
  box-shadow: 6px 6px 0 var(--color-accent);
 }
 
-
-.staff-card:nth-of-type(3n):hover {
+main > section:nth-of-type(3n):hover {
  box-shadow: 9px 9px 0 var(--color-accent);
 }
 
-
 .staff-card h2,
-.staff-card h3 {
+.staff-card h3,
+main > section > h2,
+main > section > h3 {
  display: inline-block;
  align-self: flex-start;
  font-size: 1.5rem;
@@ -464,12 +411,10 @@ h1.section-title {
  margin: 0 0 var(--spacing-md);
 }
 
-
 main > section:first-of-type > h2 {
  font-size: clamp(1.4rem, 3.2vw, 2rem);
  background-color: var(--color-primary);
 }
-
 
 main > section > h3 small {
  display: inline-block;
@@ -486,29 +431,53 @@ main > section > h3 small {
  border-radius: var(--radius-pill);
 }
 
-
 main > section > p {
  margin-bottom: var(--spacing-xs);
  max-width: none;
 }
 
+main > section img,
+.staff-card img {
+ display: block;
+ width: 100%;
+ max-width: 15rem;
+ aspect-ratio: 1 / 1;
+ object-fit: cover;
+ object-position: center top;
+ border: var(--outline);
+ box-shadow: 4px 4px 0 var(--color-neutral);
+ margin: 0 0 var(--spacing-md);
+ background-color: var(--color-highlight);
+}
+
+.director img,
+main > section:first-of-type img {
+ max-width: 18rem;
+ float: left;
+ margin: 0 var(--spacing-lg) var(--spacing-sm) 0;
+}
+
+.director::after,
+main > section:first-of-type::after {
+ content: "";
+ display: block;
+ clear: both;
+}
 
 .director {
  grid-column: 1 / -1;
  background-color: var(--color-accent);
 }
 
-
 .director h2 {
  font-size: 2rem;
  background-color: var(--color-primary);
 }
 
-
-.staff-card .email {
+.staff-card .email,
+main > section > p:has(a[href^="mailto"]) {
  margin: var(--spacing-sm) 0 var(--spacing-md);
 }
-
 
 main > section a[href^="mailto"],
 main > section a[href*="linkedin"] {
@@ -526,16 +495,14 @@ main > section a[href*="linkedin"] {
  transition: background-color 0.3s ease, transform 0.2s, box-shadow 0.2s;
 }
 
-
-.email a::before {
+.email a::before,
+main > section a[href^="mailto"]::before {
  content: "\2709\00A0\00A0";
 }
-
 
 main > section a[href*="linkedin"] {
  margin-left: 0.4rem;
 }
-
 
 main > section a[href^="mailto"]:hover,
 main > section a[href*="linkedin"]:hover {
@@ -544,7 +511,6 @@ main > section a[href*="linkedin"]:hover {
  box-shadow: 5px 5px 0 var(--color-neutral);
 }
 
-
 main > section a[href^="mailto"]:active,
 main > section a[href*="linkedin"]:active {
  transform: translate(2px, 2px);
@@ -552,8 +518,8 @@ main > section a[href*="linkedin"]:active {
  background-color: var(--color-secondary);
 }
 
-
-.staff-card .skills-label {
+.staff-card .skills-label,
+main > section > p:has(+ ul) {
  font-family: var(--font-primary);
  font-size: 0.8rem;
  letter-spacing: 0.08em;
@@ -562,8 +528,8 @@ main > section a[href*="linkedin"]:active {
  margin-bottom: var(--spacing-sm);
 }
 
-
-.staff-card ul {
+.staff-card ul,
+main > section > ul {
  list-style: none;
  display: flex;
  flex-wrap: wrap;
@@ -572,8 +538,8 @@ main > section a[href*="linkedin"]:active {
  margin: auto 0 0;
 }
 
-
-.staff-card li {
+.staff-card li,
+main > section > ul > li {
  font-size: 0.95rem;
  line-height: 1.3;
  padding: 0.3em 0.75em;
@@ -582,42 +548,37 @@ main > section a[href*="linkedin"]:active {
  box-shadow: 2px 2px 0 var(--color-neutral);
 }
 
-
-.staff-card li:nth-child(3n + 1) {
+.staff-card li:nth-child(3n + 1),
+main > section > ul > li:nth-child(3n + 1) {
  background-color: var(--color-pink);
 }
 
-
-.staff-card li:nth-child(3n + 2) {
+.staff-card li:nth-child(3n + 2),
+main > section > ul > li:nth-child(3n + 2) {
  background-color: #c8e7f3;
 }
 
-
-.staff-card li:nth-child(3n) {
+.staff-card li:nth-child(3n),
+main > section > ul > li:nth-child(3n) {
  background-color: var(--color-accent);
 }
-
 
 main > section.graduated {
  background-color: color-mix(in srgb, var(--color-cream) 70%, white);
 }
 
-
 main > section.graduated > h3 {
  background-color: var(--color-pink);
 }
-
 
 main > section.graduated > h3 small {
  background-color: var(--color-primary);
 }
 
-
 main > section.graduated > p,
 main > section.graduated > ul > li {
  color: var(--color-text-muted);
 }
-
 
 body > footer {
  background-color: var(--color-pink-hot);
@@ -628,39 +589,32 @@ body > footer {
  gap: var(--spacing-md) var(--spacing-xl);
 }
 
-
 footer address,
 footer ul {
  margin-bottom: 0;
 }
-
 
 footer strong {
  font-family: var(--font-primary);
  font-weight: 400;
 }
 
-
 footer ul {
  list-style: none;
 }
 
-
 footer li {
  margin-bottom: var(--spacing-xs);
 }
-
 
 footer a,
 footer a:visited {
  text-decoration-color: var(--color-neutral);
 }
 
-
 footer small {
  color: var(--color-text-dark);
 }
-
 
 footer > p {
  grid-column: 1 / -1;
@@ -670,33 +624,27 @@ footer > p {
  border-top: var(--outline);
 }
 
-
 @media (max-width: 700px) {
  :root {
    --gutter: 5vw;
  }
 
-
  body {
    font-size: 1.05rem;
  }
-
 
  header::after {
    display: none;
  }
 
-
  header > a {
    margin-right: auto;
  }
-
 
  nav {
    flex-basis: 100%;
    order: 3;
  }
-
 
  nav ul {
    display: grid;
@@ -704,12 +652,10 @@ footer > p {
    gap: var(--spacing-xs);
  }
 
-
  nav a {
    height: 100%;
    line-height: 1.3;
  }
-
 
  nav details ul {
    position: static;
@@ -718,12 +664,10 @@ footer > p {
    box-shadow: none;
  }
 
-
  main {
    grid-template-columns: 1fr;
    gap: var(--spacing-md);
  }
-
 
  .page-title {
    font-size: 14vw;
@@ -731,7 +675,6 @@ footer > p {
    margin-left: -5vw;
    margin-right: -5vw;
  }
-
 
  .page-title::after {
    top: auto;
@@ -742,31 +685,34 @@ footer > p {
    background: linear-gradient(to right, var(--color-primary) 33.3%, var(--color-secondary) 33.3%, var(--color-secondary) 66.6%, var(--color-accent) 66.6%);
  }
 
-
  .tagline {
    font-size: 1.1rem;
  }
-
 
  h2.section-title {
    font-size: 1.6rem;
  }
 
-
  h1.section-title {
    font-size: 2rem;
  }
 
-
- .staff-card {
+ .staff-card,
+ main > section {
    padding: var(--spacing-md);
  }
 
-
- .staff-card:hover {
+ .staff-card:hover,
+ main > section:hover {
    transform: none;
  }
 
+ main > section img,
+ .director img,
+ main > section:first-of-type img {
+   float: none;
+   max-width: 100%;
+ }
 
  main > section a[href^="mailto"],
  main > section a[href*="linkedin"] {
@@ -777,19 +723,16 @@ footer > p {
  }
 }
 
-
 @media (prefers-reduced-motion: reduce) {
  html {
    scroll-behavior: auto;
  }
-
 
  *,
  *::before,
  *::after {
    transition: none !important;
  }
-
 
  nav a:hover,
  nav a:active,
@@ -803,13 +746,11 @@ footer > p {
  }
 }
 
-
 @media (forced-colors: active) {
  h2,
  .section-title {
    background: none;
  }
-
 
  main > section > ul > li,
  main > section > h2,

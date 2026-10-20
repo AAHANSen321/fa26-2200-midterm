@@ -12,24 +12,25 @@
   <a href="#main" class="skip-link">Skip to content</a>
 
   <header>
-    <a href="index.html" aria-current="page"><img src="assets/btuLogoTRANSPARRENT.png" alt="">ATLAS BTU Lab</a>
+    <a href="index.html" aria-current="page"><img class="nav-logo" src="assets/btuLogoTRANSPARRENT.png" alt="" width="48" height="48"> ATLAS BTU Lab</a>
+
     <nav aria-label="Main navigation">
       <ul>
         <li><a href="rules.html">Rules &amp; Policies</a></li>
         <li><a href="calendar.html">Calendar</a></li>
         <li><a href="help.html">Help Us Blow Things Up</a></li>
         <li><a href="staff.html">Staff</a></li>
-        <li>
-          <details>
-            <summary>Facilities</summary>
-            <ul>
-              <li><a href="woodshop.html">Wood Shop</a></li>
-              <li><a href="lasers.html">Lasers</a></li>
-              <li><a href="3dprinters.html">3D Printers</a></li>
-              <li><a href="mainroom.html">Main Room</a></li>
-            </ul>
-          </details>
-        </li>
+        <li class="nav-dropdown">
+        <details>
+          <summary>Facilities</summary>
+          <ul>
+            <li><a href="woodshop.html">Wood Shop</a></li>
+            <li><a href="lasers.html">Lasers</a></li>
+            <li><a href="3dprinters.html">3D Printers</a></li>
+            <li><a href="mainroom.html">Main Room</a></li>
+          </ul>
+        </details>
+      </li>
       </ul>
     </nav>
   </header>
@@ -50,13 +51,13 @@
       </div>
     </section>
 
-    <section class="panel">
-      <h2>How?</h2>
-      <div>
-        <p>New members attend a 20 minute general orientation covering community expectations, safety and equipment.</p>
-        <img class="panel-photo big-photo" src="assets/Home/HOW_HOME.jpg" alt="A BTU member in safety glasses, ear protection and a dust mask holds up an angle grinder in the wood shop." width="1280" height="874" loading="lazy">
-      </div>
-    </section>
+    <section class="panel panel--photo panel--photo-gap">
+  <h2>How?</h2>
+  <div>
+    <p>New members attend a 20 minute general orientation covering community expectations, safety and equipment.</p>
+    <img class="panel-photo" style="--photo-overhang: 5rem" src="assets/Home/HOW_HOME.jpg" alt="A BTU member in safety glasses, ear protection and a dust mask holds up an angle grinder in the wood shop." width="1280" height="874" loading="lazy">
+  </div>
+</section>
 
     <section class="panel">
       <h2>When?</h2>
@@ -73,7 +74,7 @@
       </div>
     </section>
 
-    <section class="panel">
+    <section class="panel panel--photo panel--photo-gap panel--photo-alt">
       <h2>And, finally...Where?</h2>
       <div>
         <address>
@@ -82,23 +83,23 @@
           Boulder, CO 80309
         </address>
         <p><a href="https://www.google.com/maps/search/?api=1&amp;query=ATLAS+Institute%2C+1125+18th+St%2C+Boulder%2C+CO+80309">View on Google Maps</a></p>
-        <img class="panel-photo red-shadow" src="assets/Home/WHEN_HOME.jpg" alt="The BTU main room on a busy day, with makers working on laptops and projects around the big wooden tables." width="1280" height="930" loading="lazy">
+        <img class="panel-photo" src="assets/Home/WHEN_HOME.jpg" alt="The BTU main room on a busy day, with makers working on laptops and projects around the big wooden tables." width="1280" height="930" loading="lazy">
       </div>
     </section>
 
-    <section class="panel last-panel">
+    <section class="panel">
       <h2>Materials</h2>
       <div>
         <p><strong>BTU Lab is not a free supply store.</strong> But there are many ways to barter, including displaying your work in BTU, tagging us in social media, <a href="workshops.html">offering workshops</a>, volunteering to organize supplies, and more. If you need something, we ask that you give something in return.</p>
       </div>
     </section>
 
-    <section class="card showcase" aria-labelledby="showcase-title">
+    <section class="showcase" aria-labelledby="showcase-title">
       <h2 id="showcase-title">Fabricate Anything You Can Imagine</h2>
       <div class="showcase-collage">
-        <img class="showcase-top" src="assets/Home/Uh..What_Home.png" alt="Students gather around a glowing interactive table they built, lit from below with projected light and dotted with small white figures." width="924" height="664" loading="lazy">
-        <img class="showcase-middle" src="assets/The BTU _Mischief Makers_/Perry Owens.jpg" alt="Perry Owens smiles and points to his light-up sculpture, which casts a colorful glowing pattern on the wall behind it." width="1280" height="1178" loading="lazy">
-        <img class="showcase-bottom" src="assets/WoodSHOP/WOODSHOP ORIENTATIONS(WOOD SHOP).jpg" alt="A wooden goblet turned on the lathe from two kinds of wood, with a twisting spiral stem." width="1280" height="1113" loading="lazy">
+        <img class="showcase-photo showcase-photo--top" src="assets/Home/Uh..What_Home.png" alt="Students gather around a glowing interactive table they built, lit from below with projected light and dotted with small white figures." width="924" height="664" loading="lazy">
+        <img class="showcase-photo showcase-photo--middle" src="assets/The BTU _Mischief Makers_/Perry Owens.jpg" alt="Perry Owens smiles and points to his light-up sculpture, which casts a colorful glowing pattern on the wall behind it." width="1280" height="1178" loading="lazy">
+        <img class="showcase-photo showcase-photo--bottom" src="assets/WoodSHOP/WOODSHOP ORIENTATIONS(WOOD SHOP).jpg" alt="A wooden goblet turned on the lathe from two kinds of wood, with a twisting spiral stem." width="1280" height="1113" loading="lazy">
       </div>
     </section>
 

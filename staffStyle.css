@@ -168,7 +168,11 @@ header > a {
  color: var(--color-secondary);
  text-decoration: none;
  padding: var(--spacing-xs) var(--spacing-sm);
+<<<<<<< HEAD
  margin-left: calc(var(--spacing-sm) * -1);
+=======
+ margin-left: -0.6rem;
+>>>>>>> 3f6941fde994e814a91b6c70f815264d019cddb2
  text-shadow: 0.1em 0.1em 0 var(--color-primary);
  -webkit-text-stroke: 0.12em var(--color-cream);
  paint-order: stroke fill;
@@ -465,6 +469,7 @@ h1.section-title {
 }
 
 
+<<<<<<< HEAD
 main > section:first-of-type > h2 {
  font-size: clamp(1.4rem, 3.2vw, 2rem);
  background-color: var(--color-primary);
@@ -488,6 +493,9 @@ main > section > h3 small {
 
 
 main > section > p {
+=======
+.staff-card p {
+>>>>>>> 3f6941fde994e814a91b6c70f815264d019cddb2
  margin-bottom: var(--spacing-xs);
  max-width: none;
 }
@@ -510,8 +518,12 @@ main > section > p {
 }
 
 
+<<<<<<< HEAD
 main > section a[href^="mailto"],
 main > section a[href*="linkedin"] {
+=======
+.email a {
+>>>>>>> 3f6941fde994e814a91b6c70f815264d019cddb2
  display: inline-block;
  padding: 0.35em 1em;
  font-size: 0.95rem;
@@ -532,6 +544,7 @@ main > section a[href*="linkedin"] {
 }
 
 
+<<<<<<< HEAD
 main > section a[href*="linkedin"] {
  margin-left: 0.4rem;
 }
@@ -539,14 +552,21 @@ main > section a[href*="linkedin"] {
 
 main > section a[href^="mailto"]:hover,
 main > section a[href*="linkedin"]:hover {
+=======
+.email a:hover {
+>>>>>>> 3f6941fde994e814a91b6c70f815264d019cddb2
  background-color: var(--color-accent);
  transform: translate(-2px, -2px);
  box-shadow: 5px 5px 0 var(--color-neutral);
 }
 
 
+<<<<<<< HEAD
 main > section a[href^="mailto"]:active,
 main > section a[href*="linkedin"]:active {
+=======
+.email a:active {
+>>>>>>> 3f6941fde994e814a91b6c70f815264d019cddb2
  transform: translate(2px, 2px);
  box-shadow: none;
  background-color: var(--color-secondary);
@@ -598,6 +618,7 @@ main > section a[href*="linkedin"]:active {
 }
 
 
+<<<<<<< HEAD
 main > section.graduated {
  background-color: color-mix(in srgb, var(--color-cream) 70%, white);
 }
@@ -620,6 +641,10 @@ main > section.graduated > ul > li {
 
 
 body > footer {
+=======
+footer {
+ margin-top: auto;
+>>>>>>> 3f6941fde994e814a91b6c70f815264d019cddb2
  background-color: var(--color-pink-hot);
  border-top: var(--outline);
  padding: var(--spacing-lg) var(--gutter);
@@ -768,8 +793,23 @@ footer > p {
  }
 
 
+<<<<<<< HEAD
  main > section a[href^="mailto"],
  main > section a[href*="linkedin"] {
+=======
+ .staff-card h2,
+ .staff-card h3 {
+   font-size: 1.15rem;
+ }
+
+
+ .director h2 {
+   font-size: 1.4rem;
+ }
+
+
+ .email a {
+>>>>>>> 3f6941fde994e814a91b6c70f815264d019cddb2
    display: block;
    text-align: center;
    margin-left: 0;
@@ -794,11 +834,17 @@ footer > p {
  nav a:hover,
  nav a:active,
  nav summary:hover,
+<<<<<<< HEAD
  main > section:hover,
  main > section a[href^="mailto"]:hover,
  main > section a[href^="mailto"]:active,
  main > section a[href*="linkedin"]:hover,
  main > section a[href*="linkedin"]:active {
+=======
+ .staff-card:hover,
+ .email a:hover,
+ .email a:active {
+>>>>>>> 3f6941fde994e814a91b6c70f815264d019cddb2
    transform: none;
  }
 }
@@ -811,10 +857,29 @@ footer > p {
  }
 
 
+<<<<<<< HEAD
  main > section > ul > li,
  main > section > h2,
  main > section > h3,
  main > section > h3 small {
    border: 1px solid CanvasText;
  }
+=======
+ .staff-card li,
+ .staff-card h2,
+ .staff-card h3 {
+   border: 1px solid CanvasText;
+ }
 }
+
+
+/* Staff Card Image Styling */
+.staff-card img {
+ display: block;
+ width: 100%;
+ max-width: 300px;
+ aspect-ratio: 1 / 1;
+ object-fit: cover;
+ border-radius: 8px;
+ margin-bottom: 1rem;
+>>>>>>> 3f6941fde994e814a91b6c70f815264d019cddb2

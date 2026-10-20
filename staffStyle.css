@@ -674,3 +674,14 @@ footer > p {
     border: 1px solid CanvasText;
   }
 }
+
+/* Staff Card Image Styling */
+.staff-card img {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}

@@ -393,6 +393,7 @@ main {
 
 .panel h2 {
   writing-mode: vertical-rl;
+  transform: rotate(180deg);
   margin: 0;
   padding: var(--spacing-md) 0;
   display: flex;
@@ -403,7 +404,7 @@ main {
   letter-spacing: 0.06em;
   color: var(--color-text-dark);
   background: var(--color-primary);
-  border-left: var(--outline);
+  border-right: var(--outline);
 }
 
 .panel:nth-of-type(3n) h2 {

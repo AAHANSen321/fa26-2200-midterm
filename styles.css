@@ -407,65 +407,43 @@ main {
   border-right: var(--outline);
 }
 
-.panel:nth-of-type(3n) h2 {
+.panel:nth-of-type(3n + 2) h2 {
   background: var(--color-secondary);
 }
 
-.panel:nth-of-type(3n + 1) h2 {
+.panel:nth-of-type(3n) h2 {
   background: var(--color-accent);
 }
 
 .panel > div {
-  position: relative;
   background-color: var(--color-cream);
   border-right: var(--outline);
   padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-lg) var(--spacing-xl);
-  display: grid;
-  grid-template-columns: minmax(0, var(--measure)) 1fr;
-  align-content: center;
-  align-items: center;
-  column-gap: var(--spacing-xl);
-}
-
-.panel > div > :not(img) {
-  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .panel > div > :last-child {
   margin-bottom: 0;
 }
 
-.panel-photo {
-  grid-column: 2;
-  grid-row: 1 / span 6;
-  align-self: center;
-  justify-self: center;
-  width: 100%;
-  max-width: 22rem;
-  height: auto;
-  margin: 0;
-  border: 3px solid var(--color-neutral);
-  box-shadow: 4px 4px 0 var(--color-secondary);
-}
-
-.big-photo {
-  max-width: 26rem;
-}
-
-.red-shadow {
-  box-shadow: 4px 4px 0 var(--color-primary);
+.home-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
 }
 
 .showcase {
-  margin-top: var(--spacing-xl);
+  margin: 0 var(--gutter) 0 0;
   box-shadow: 6px 6px 0 var(--color-secondary);
 }
 
 .showcase-collage {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(12, 1fr);
-  aspect-ratio: 920 / 1220;
+  grid-template-rows: repeat(15, 1fr);
+  aspect-ratio: 920 / 1525;
   width: 100%;
   max-width: 42rem;
   margin: 0 auto;
@@ -496,6 +474,13 @@ main {
   grid-column: 1 / 8;
   grid-row: 8 / 13;
   box-shadow: 5px 5px 0 var(--color-accent);
+}
+
+.showcase-last {
+  grid-column: 6 / 13;
+  grid-row: 11 / 16;
+  z-index: 1;
+  box-shadow: 5px 5px 0 var(--color-primary);
 }
 
 footer {
@@ -623,16 +608,14 @@ footer > p {
   .panel > div {
     border-right: 0;
     padding: var(--spacing-md);
+  }
+
+  .home-columns {
     grid-template-columns: 1fr;
   }
 
-  .panel-photo,
-  .big-photo {
-    grid-column: 1;
-    grid-row: auto;
-    justify-self: stretch;
-    max-width: 100%;
-    margin: var(--spacing-md) 0 0;
+  .showcase {
+    margin: var(--spacing-xl) var(--gutter) 0;
   }
 
   .card {

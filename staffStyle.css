@@ -926,3 +926,72 @@ footer > p {
 main > section > ul {
   margin: 0;
 }
+
+.director {
+  display: grid;
+  grid-template-columns: 18rem 1fr;
+  grid-template-rows: auto auto auto 1fr auto;
+  column-gap: var(--spacing-xl);
+  align-items: start;
+}
+
+.director h2 {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  justify-self: start;
+}
+
+.director img + p {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  margin-bottom: var(--spacing-md);
+}
+
+.director img {
+  grid-column: 1;
+  grid-row: 3 / 5;
+  max-width: 100%;
+  margin: 0;
+}
+
+.director .email {
+  grid-column: 1;
+  grid-row: 5;
+  margin: var(--spacing-md) 0 0;
+}
+
+.director .skills-label {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.director > ul {
+  grid-column: 2;
+  grid-row: 4;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-sm);
+}
+
+.director > ul > li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .director {
+    display: flex;
+  }
+
+  .director img {
+    max-width: 100%;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .director > ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

@@ -921,3 +921,8 @@ footer > p {
     border: 1px solid CanvasText;
   }
 }
+
+.staff-card ul,
+main > section > ul {
+  margin: 0;
+}

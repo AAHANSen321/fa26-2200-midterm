@@ -517,7 +517,7 @@ h1.section-title {
   flex-wrap: wrap;
   gap: var(--spacing-xs) var(--spacing-sm);
   max-width: none;
-  margin: auto 0 0;
+   margin: 0;
 }
 
 .staff-card li {
@@ -555,6 +555,173 @@ h1.section-title {
 
 .graduated p,
 .graduated li {
+  color: var(--color-text-muted);
+}
+main > section {
+  background-color: var(--color-cream);
+  border: var(--outline);
+  box-shadow: 6px 6px 0 var(--color-primary);
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+main > section:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0 var(--color-primary);
+}
+
+main > section:nth-of-type(3n + 2) {
+  box-shadow: 6px 6px 0 var(--color-secondary);
+}
+
+main > section:nth-of-type(3n + 2):hover {
+  box-shadow: 9px 9px 0 var(--color-secondary);
+}
+
+main > section:nth-of-type(3n) {
+  box-shadow: 6px 6px 0 var(--color-accent);
+}
+
+main > section:nth-of-type(3n):hover {
+  box-shadow: 9px 9px 0 var(--color-accent);
+}
+
+main > section > h2,
+main > section > h3 {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 1.5rem;
+  color: var(--color-text-dark);
+  background-color: var(--color-accent);
+  border: var(--outline);
+  box-shadow: 3px 3px 0 var(--color-neutral);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  margin: 0 0 var(--spacing-md);
+}
+
+main > section > h3 small {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.4em;
+  padding: 0.1em 0.6em;
+  font-family: var(--font-secondary);
+  font-size: 0.6em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-text-dark);
+  background-color: var(--color-highlight);
+  border: var(--outline);
+  border-radius: var(--radius-pill);
+}
+
+main > section > img {
+  display: block;
+  width: 100%;
+  max-width: 15rem;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center top;
+  border: var(--outline);
+  box-shadow: 4px 4px 0 var(--color-neutral);
+  margin: 0 0 var(--spacing-md);
+  background-color: var(--color-highlight);
+}
+
+main > section > p {
+  margin-bottom: var(--spacing-xs);
+  max-width: none;
+}
+
+main > section > p:has(a[href^="mailto"]) {
+  margin: var(--spacing-sm) 0 var(--spacing-md);
+}
+
+main > section a[href^="mailto"],
+main > section a[href*="linkedin"] {
+  display: inline-block;
+  padding: 0.35em 1em;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background-color: var(--color-highlight);
+  text-decoration: none;
+  border: var(--outline);
+  border-radius: var(--radius-pill);
+  box-shadow: 3px 3px 0 var(--color-neutral);
+  overflow-wrap: anywhere;
+  transition: background-color 0.3s ease, transform 0.2s, box-shadow 0.2s;
+}
+
+main > section a[href^="mailto"]::before {
+  content: "\2709\00A0\00A0";
+}
+
+main > section a[href*="linkedin"] {
+  margin-left: 0.4rem;
+}
+
+main > section a[href^="mailto"]:hover,
+main > section a[href*="linkedin"]:hover {
+  background-color: var(--color-accent);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--color-neutral);
+}
+
+main > section > p:has(+ ul) {
+  font-family: var(--font-primary);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: var(--spacing-sm);
+}
+
+main > section > ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs) var(--spacing-sm);
+  max-width: none;
+  margin: auto 0 0;
+}
+
+main > section > ul > li {
+  font-size: 0.95rem;
+  line-height: 1.3;
+  padding: 0.3em 0.75em;
+  background-color: var(--color-highlight);
+  border: var(--outline);
+  box-shadow: 2px 2px 0 var(--color-neutral);
+}
+
+main > section > ul > li:nth-child(3n + 1) {
+  background-color: var(--color-pink);
+}
+
+main > section > ul > li:nth-child(3n + 2) {
+  background-color: #c8e7f3;
+}
+
+main > section > ul > li:nth-child(3n) {
+  background-color: var(--color-accent);
+}
+
+main > section.graduated {
+  background-color: #fff7e7;
+}
+
+main > section.graduated > h3 {
+  background-color: var(--color-pink);
+}
+
+main > section.graduated > h3 small {
+  background-color: var(--color-primary);
+}
+
+main > section.graduated > p,
+main > section.graduated > ul > li {
   color: var(--color-text-muted);
 }
 

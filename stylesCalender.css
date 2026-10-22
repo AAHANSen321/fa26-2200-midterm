@@ -506,25 +506,7 @@ footer > p {
   iframe {
     min-height: 50vh;
   }
-    iframe {
-    min-height: 50vh;
-  }
-
-  footer {
-    grid-template-columns: 1fr;
-  }
-
-  footer > p {
-    grid-column: 1;
-  }
-
-  footer ul {
-    justify-self: start;
-    text-align: left;
-    margin-top: 0;
-  }
 }
-
 
 @media (prefers-reduced-motion: reduce) {
   html {

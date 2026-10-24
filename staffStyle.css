@@ -871,8 +871,9 @@ footer > p {
     font-size: 1.4rem;
   }
 
-  .staff-card img,
-  .director img {
+    .staff-card img,
+  .director img,
+  main > section > img {
     max-width: 100%;
   }
 

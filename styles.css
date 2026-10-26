@@ -380,6 +380,15 @@ main {
   grid-template-columns: var(--tab-width) 1fr;
   border-top: var(--outline);
   margin-right: var(--gutter);
+  background: linear-gradient(to right, var(--color-primary) var(--tab-width), transparent var(--tab-width));
+}
+
+.panel:nth-of-type(3n + 2) {
+  background: linear-gradient(to right, var(--color-secondary) var(--tab-width), transparent var(--tab-width));
+}
+
+.panel:nth-of-type(3n) {
+  background: linear-gradient(to right, var(--color-accent) var(--tab-width), transparent var(--tab-width));
 }
 
 .last-panel {
@@ -387,8 +396,9 @@ main {
 }
 
 .panel h2 {
+  position: relative;
+  -webkit-writing-mode: vertical-rl;
   writing-mode: vertical-rl;
-  transform: rotate(180deg);
   margin: 0;
   padding: var(--spacing-md) 0;
   display: flex;
@@ -397,16 +407,20 @@ main {
   white-space: nowrap;
   font-size: 1.15rem;
   letter-spacing: 0.06em;
+  color: transparent;
+  background: none;
+}
+
+.panel h2::after {
+  content: attr(data-label);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-writing-mode: horizontal-tb;
+  writing-mode: horizontal-tb;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  white-space: nowrap;
   color: var(--color-text-dark);
-  background: var(--color-primary);
-}
-
-.panel:nth-of-type(3n + 2) h2 {
-  background: var(--color-secondary);
-}
-
-.panel:nth-of-type(3n) h2 {
-  background: var(--color-accent);
 }
 
 .panel > div {
@@ -441,8 +455,8 @@ main {
 
 .showcase-collage {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(15, 1fr);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: repeat(15, minmax(0, 1fr));
   aspect-ratio: 920 / 1525;
   width: 100%;
   max-width: 42rem;
@@ -450,8 +464,11 @@ main {
 }
 
 .showcase-collage img {
+  display: block;
   width: 100%;
   height: 100%;
+  min-width: 0;
+  min-height: 0;
   object-fit: cover;
   border: 3px solid var(--color-neutral);
 }
@@ -666,3 +683,4 @@ footer > p {
     background: none;
   }
 }
+

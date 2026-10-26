@@ -669,7 +669,19 @@ footer > p {
   }
 
   nav details ul {
+    position: static;
     grid-template-columns: 1fr;
+    min-width: 0;
+    margin-top: var(--spacing-xs);
+    box-shadow: none;
+  }
+
+    nav > ul > li {
+    align-self: start;
+  }
+
+  nav a {
+    line-height: 1.3;
   }
 
   main {
@@ -866,5 +878,22 @@ footer > p {
     display: flex;
     flex-wrap: wrap;
   }
+}
+
+.staff-card.director > ul > li:nth-child(1),
+.staff-card.director > ul > li:nth-child(5) {
+  background-color: var(--color-pink);
+}
+
+.staff-card.director > ul > li:nth-child(2),
+.staff-card.director > ul > li:nth-child(6),
+.staff-card.director > ul > li:nth-child(7) {
+  background-color: #c8e7f3;
+}
+
+.staff-card.director > ul > li:nth-child(3),
+.staff-card.director > ul > li:nth-child(4),
+.staff-card.director > ul > li:nth-child(8) {
+  background-color: var(--color-accent);
 }
 

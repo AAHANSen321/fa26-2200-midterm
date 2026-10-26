@@ -419,9 +419,7 @@ h2.section-title {
   display: block;
   width: 100%;
   max-width: 15rem;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  object-position: center top;
+  height: auto;
   border: var(--outline);
   box-shadow: 4px 4px 0 var(--color-neutral);
   margin: 0 0 var(--spacing-md);

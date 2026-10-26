@@ -12,7 +12,8 @@
   --color-cream: #fff3dc;
   --color-text-dark: #221c1d;
   --color-text-muted: rgba(34, 28, 29, 0.78);
-  --color-green: #6fcf8e;
+  --color-green: #3f9e5a;
+  --color-lime: #a6e22e;
   --color-band-pink: #ff7ab8;
   --color-band-green: #3fae49;
 
@@ -275,7 +276,10 @@ main {
   grid-column: 1 / -1;
   position: relative;
   overflow: hidden;
-  font-size: 7rem;
+  display: flex;
+  align-items: center;
+  height: 358px;
+  font-size: 5.5rem;
   line-height: 1;
   color: var(--color-secondary);
   text-shadow: 0.06em 0.06em 0 var(--color-accent);
@@ -286,6 +290,7 @@ main {
   border-bottom: var(--outline);
   white-space: nowrap;
   overflow-wrap: normal;
+  background: var(--color-neutral) url("assets/WoodSHOP/woodshop_banner.png") center / cover no-repeat;
 }
 
 .page-title::after {
@@ -293,23 +298,23 @@ main {
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
-  width: 45%;
+  width: 30%;
+  height: 75%;
   background: linear-gradient(
-    125deg,
-    transparent 46%,
-    var(--color-neutral) 46%,
-    var(--color-neutral) calc(46% + 2px),
-    var(--color-primary) calc(46% + 2px),
-    var(--color-primary) 64%,
-    var(--color-neutral) 64%,
-    var(--color-neutral) calc(64% + 2px),
-    var(--color-secondary) calc(64% + 2px),
-    var(--color-secondary) 82%,
-    var(--color-neutral) 82%,
-    var(--color-neutral) calc(82% + 2px),
-    var(--color-accent) calc(82% + 2px)
-  );
+    to top right,
+    transparent 52%,
+    var(--color-neutral) 52%,
+    var(--color-neutral) calc(52% + 2px),
+    var(--color-primary) calc(52% + 2px),
+    var(--color-primary) 68%,
+    var(--color-neutral) 68%,
+    var(--color-neutral) calc(68% + 2px),
+    var(--color-secondary) calc(68% + 2px),
+    var(--color-secondary) 84%,
+    var(--color-neutral) 84%,
+    var(--color-neutral) calc(84% + 2px),
+    var(--color-accent) calc(84% + 2px)
+    );
 }
 
 .color-band {
@@ -455,6 +460,37 @@ main {
   border: var(--outline);
   box-shadow: 3px 3px 0 var(--color-neutral);
   padding: var(--spacing-xs) var(--spacing-sm);
+}
+
+.green-tag.power-tools {
+  background-color: var(--color-lime);
+}
+
+.tools-intro {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-lg);
+}
+
+.tools-intro > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.photo-cell {
+  position: relative;
+}
+
+.tools-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  border: var(--outline);
+  box-shadow: 6px 6px 0 var(--color-primary);
 }
 
 .tool-list {
@@ -637,18 +673,22 @@ footer > p {
     gap: var(--spacing-md);
   }
 
-  .page-title {
-    font-size: 13vw;
-    padding: 0.75rem var(--gutter) 1.75rem;
+  .tools-intro {
+    grid-template-columns: 1fr;
   }
 
-  .page-title::after {
-    top: auto;
-    left: 0;
-    width: auto;
-    height: 1rem;
-    border-top: var(--outline);
-    background: linear-gradient(to right, var(--color-primary) 33.3%, var(--color-secondary) 33.3%, var(--color-secondary) 66.6%, var(--color-accent) 66.6%);
+  .tools-photo {
+    position: static;
+    width: 100%;
+    height: auto;
+    max-height: none;
+  }
+
+  .page-title {
+    height: auto;
+    aspect-ratio: 2048 / 716;
+    font-size: 13vw;
+    padding: 0.75rem var(--gutter);
   }
 
   .color-band {

@@ -273,7 +273,7 @@ main {
 main h1 {
   position: relative;
   overflow: hidden;
-  font-size: 4rem;
+  font-size: 5.5rem;
   line-height: 1.05;
   color: var(--color-secondary);
   text-shadow: 0.06em 0.06em 0 var(--color-accent);
@@ -341,8 +341,13 @@ main p + p {
   padding-top: var(--spacing-md);
 }
 
-main p:last-child {
-  padding-bottom: 2.5rem;
+.help-photo {
+  display: block;
+  width: 50%;
+  height: auto;
+  margin: var(--spacing-lg) 2.5rem 2.5rem;
+  border: var(--outline);
+  box-shadow: 6px 6px 0 var(--color-primary);
 }
 
 .give-button {
@@ -487,8 +492,9 @@ footer > p {
     padding: 0 1.5rem;
   }
 
-  main p:last-child {
-    padding-bottom: 1.5rem;
+  .help-photo {
+    width: calc(100% - 3rem);
+    margin: var(--spacing-lg) 1.5rem 1.5rem;
   }
 
   footer {

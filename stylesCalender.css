@@ -2,6 +2,7 @@
 
 :root {
   --color-primary: #ED5A66;
+  --color-primary-dark: #a53e47;
   --color-secondary: #23A0D1;
   --color-accent: #f6e365;
   --color-neutral: #221c1d;
@@ -57,15 +58,11 @@ body {
   flex-direction: column;
 }
 
-h1,
-h2 {
+h1 {
   font-family: var(--font-primary);
   font-weight: 400;
   line-height: 1.1;
   overflow-wrap: anywhere;
-}
-
-h1 {
   font-size: 4rem;
   color: var(--color-secondary);
   text-shadow: 0.06em 0.06em 0 var(--color-accent);
@@ -74,7 +71,6 @@ h1 {
 
 p,
 ul,
-ol,
 address {
   margin-bottom: var(--spacing-md);
   max-width: var(--measure);
@@ -193,13 +189,13 @@ header > a {
   align-items: center;
   gap: var(--spacing-sm);
   font-family: var(--font-primary);
-  font-size: 1.75rem;
+  font-size: 2.2rem;
   line-height: 1.1;
   color: var(--color-secondary);
   text-decoration: none;
   padding: var(--spacing-xs) var(--spacing-sm);
   margin-left: -0.6rem;
-  text-shadow: 0.1em 0.1em 0 var(--color-primary);
+  text-shadow: 0.1em 0.1em 0 var(--color-primary-dark);
   -webkit-text-stroke: 0.12em var(--color-cream);
   paint-order: stroke fill;
 }
@@ -351,7 +347,7 @@ main {
     var(--color-neutral) 82%,
     var(--color-neutral) calc(82% + 2px),
     var(--color-accent) calc(82% + 2px)
-  );
+    );
 }
 
 .hero h1 {
@@ -362,6 +358,8 @@ main {
   margin-bottom: 0;
   white-space: nowrap;
   overflow-wrap: normal;
+  -webkit-text-stroke: 0.05em var(--color-neutral);
+  paint-order: stroke fill;
 }
 
 iframe {
@@ -381,60 +379,52 @@ iframe:focus-visible {
 }
 
 footer {
- margin-top: auto;
- background-color: var(--color-pink-hot);
- border-top: var(--outline);
- padding: var(--spacing-lg) var(--gutter);
- display: grid;
- grid-template-columns: 1fr auto;
- gap: var(--spacing-md) var(--spacing-xl);
+  margin-top: auto;
+  background-color: var(--color-pink-hot);
+  border-top: var(--outline);
+  padding: var(--spacing-lg) var(--gutter);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--spacing-md) var(--spacing-xl);
 }
-
 
 footer address,
 footer ul {
- margin-bottom: 0;
+  margin-bottom: 0;
 }
-
 
 footer strong {
- font-family: var(--font-primary);
- font-weight: 400;
+  font-family: var(--font-primary);
+  font-weight: 400;
 }
-
 
 footer ul {
- list-style: none;
- justify-self: end;
- text-align: right;
- margin-top: 1.6em;
+  list-style: none;
+  justify-self: end;
+  text-align: right;
+  margin-top: 1.6em;
 }
-
 
 footer li {
- margin-bottom: var(--spacing-xs);
+  margin-bottom: var(--spacing-xs);
 }
-
 
 footer a,
 footer a:visited {
- text-decoration-color: var(--color-neutral);
+  text-decoration-color: var(--color-neutral);
 }
-
 
 footer small {
- color: var(--color-text-dark);
+  color: var(--color-text-dark);
 }
-
 
 footer > p {
- grid-column: 1 / 3;
- max-width: none;
- margin-bottom: 0;
- padding-top: var(--spacing-md);
- border-top: var(--outline);
+  grid-column: 1 / 3;
+  max-width: none;
+  margin-bottom: 0;
+  padding-top: var(--spacing-md);
+  border-top: var(--outline);
 }
-
 
 @media (max-width: 700px) {
   :root {
@@ -451,6 +441,7 @@ footer > p {
 
   header > a {
     margin-right: auto;
+    font-size: 1.75rem;
   }
 
   nav {
@@ -470,10 +461,7 @@ footer > p {
   }
 
   nav details ul {
-    position: static;
-    min-width: 0;
-    margin-top: var(--spacing-xs);
-    box-shadow: none;
+    grid-template-columns: 1fr;
   }
 
   .hero {
@@ -505,6 +493,20 @@ footer > p {
 
   iframe {
     min-height: 50vh;
+  }
+
+  footer {
+    grid-template-columns: 1fr;
+  }
+
+  footer > p {
+    grid-column: 1;
+  }
+
+  footer ul {
+    justify-self: start;
+    text-align: left;
+    margin-top: 0;
   }
 }
 

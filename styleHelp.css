@@ -377,6 +377,16 @@ main p + p {
   background-color: var(--color-secondary);
 }
 
+
+.give-wrap {
+  text-align: center;
+}
+
+.give-wrap .give-button {
+  font-size: 1.1em;
+  padding: 0.45em 1.4em;
+}
+
 footer {
   margin-top: auto;
   background-color: var(--color-pink-hot);
